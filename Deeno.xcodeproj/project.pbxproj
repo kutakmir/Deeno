@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA0396E51DDA4E8E0096F413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0396E41DDA4E8E0096F413 /* AppDelegate.swift */; };
+		FA0396E71DDA4E8E0096F413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0396E61DDA4E8E0096F413 /* ViewController.swift */; };
+		FA0396EA1DDA4E8E0096F413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0396E81DDA4E8E0096F413 /* Main.storyboard */; };
+		FA0396EC1DDA4E8E0096F413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0396EB1DDA4E8E0096F413 /* Assets.xcassets */; };
+		FA0396EF1DDA4E8E0096F413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0396ED1DDA4E8E0096F413 /* LaunchScreen.storyboard */; };
+		FA0396FA1DDA4E8E0096F413 /* DeenoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0396F91DDA4E8E0096F413 /* DeenoTests.swift */; };
+		FA0397051DDA4E8E0096F413 /* DeenoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0397041DDA4E8E0096F413 /* DeenoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA0396F61DDA4E8E0096F413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA0396D91DDA4E8E0096F413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0396E01DDA4E8E0096F413;
+			remoteInfo = Deeno;
+		};
+		FA0397011DDA4E8E0096F413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA0396D91DDA4E8E0096F413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0396E01DDA4E8E0096F413;
+			remoteInfo = Deeno;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FA0396E11DDA4E8E0096F413 /* Deeno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deeno.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0396E41DDA4E8E0096F413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA0396E61DDA4E8E0096F413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA0396E91DDA4E8E0096F413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA0396EB1DDA4E8E0096F413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA0396EE1DDA4E8E0096F413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA0396F01DDA4E8E0096F413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA0396F51DDA4E8E0096F413 /* DeenoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeenoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0396F91DDA4E8E0096F413 /* DeenoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeenoTests.swift; sourceTree = "<group>"; };
+		FA0396FB1DDA4E8E0096F413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA0397001DDA4E8E0096F413 /* DeenoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeenoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0397041DDA4E8E0096F413 /* DeenoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeenoUITests.swift; sourceTree = "<group>"; };
+		FA0397061DDA4E8E0096F413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA0396DE1DDA4E8E0096F413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0396F21DDA4E8E0096F413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0396FD1DDA4E8E0096F413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA0396D81DDA4E8E0096F413 = {
+			isa = PBXGroup;
+			children = (
+				FA0396E31DDA4E8E0096F413 /* Deeno */,
+				FA0396F81DDA4E8E0096F413 /* DeenoTests */,
+				FA0397031DDA4E8E0096F413 /* DeenoUITests */,
+				FA0396E21DDA4E8E0096F413 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA0396E21DDA4E8E0096F413 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA0396E11DDA4E8E0096F413 /* Deeno.app */,
+				FA0396F51DDA4E8E0096F413 /* DeenoTests.xctest */,
+				FA0397001DDA4E8E0096F413 /* DeenoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA0396E31DDA4E8E0096F413 /* Deeno */ = {
+			isa = PBXGroup;
+			children = (
+				FA0396E41DDA4E8E0096F413 /* AppDelegate.swift */,
+				FA0396E61DDA4E8E0096F413 /* ViewController.swift */,
+				FA0396E81DDA4E8E0096F413 /* Main.storyboard */,
+				FA0396EB1DDA4E8E0096F413 /* Assets.xcassets */,
+				FA0396ED1DDA4E8E0096F413 /* LaunchScreen.storyboard */,
+				FA0396F01DDA4E8E0096F413 /* Info.plist */,
+			);
+			path = Deeno;
+			sourceTree = "<group>";
+		};
+		FA0396F81DDA4E8E0096F413 /* DeenoTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA0396F91DDA4E8E0096F413 /* DeenoTests.swift */,
+				FA0396FB1DDA4E8E0096F413 /* Info.plist */,
+			);
+			path = DeenoTests;
+			sourceTree = "<group>";
+		};
+		FA0397031DDA4E8E0096F413 /* DeenoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA0397041DDA4E8E0096F413 /* DeenoUITests.swift */,
+				FA0397061DDA4E8E0096F413 /* Info.plist */,
+			);
+			path = DeenoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA0396E01DDA4E8E0096F413 /* Deeno */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0397091DDA4E8E0096F413 /* Build configuration list for PBXNativeTarget "Deeno" */;
+			buildPhases = (
+				FA0396DD1DDA4E8E0096F413 /* Sources */,
+				FA0396DE1DDA4E8E0096F413 /* Frameworks */,
+				FA0396DF1DDA4E8E0096F413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Deeno;
+			productName = Deeno;
+			productReference = FA0396E11DDA4E8E0096F413 /* Deeno.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA0396F41DDA4E8E0096F413 /* DeenoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA03970C1DDA4E8E0096F413 /* Build configuration list for PBXNativeTarget "DeenoTests" */;
+			buildPhases = (
+				FA0396F11DDA4E8E0096F413 /* Sources */,
+				FA0396F21DDA4E8E0096F413 /* Frameworks */,
+				FA0396F31DDA4E8E0096F413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA0396F71DDA4E8E0096F413 /* PBXTargetDependency */,
+			);
+			name = DeenoTests;
+			productName = DeenoTests;
+			productReference = FA0396F51DDA4E8E0096F413 /* DeenoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA0396FF1DDA4E8E0096F413 /* DeenoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA03970F1DDA4E8E0096F413 /* Build configuration list for PBXNativeTarget "DeenoUITests" */;
+			buildPhases = (
+				FA0396FC1DDA4E8E0096F413 /* Sources */,
+				FA0396FD1DDA4E8E0096F413 /* Frameworks */,
+				FA0396FE1DDA4E8E0096F413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA0397021DDA4E8E0096F413 /* PBXTargetDependency */,
+			);
+			name = DeenoUITests;
+			productName = DeenoUITests;
+			productReference = FA0397001DDA4E8E0096F413 /* DeenoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA0396D91DDA4E8E0096F413 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Miroslav Kuťák";
+				TargetAttributes = {
+					FA0396E01DDA4E8E0096F413 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = XWJ8766AJL;
+						ProvisioningStyle = Automatic;
+					};
+					FA0396F41DDA4E8E0096F413 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = XWJ8766AJL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA0396E01DDA4E8E0096F413;
+					};
+					FA0396FF1DDA4E8E0096F413 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = XWJ8766AJL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA0396E01DDA4E8E0096F413;
+					};
+				};
+			};
+			buildConfigurationList = FA0396DC1DDA4E8E0096F413 /* Build configuration list for PBXProject "Deeno" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA0396D81DDA4E8E0096F413;
+			productRefGroup = FA0396E21DDA4E8E0096F413 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA0396E01DDA4E8E0096F413 /* Deeno */,
+				FA0396F41DDA4E8E0096F413 /* DeenoTests */,
+				FA0396FF1DDA4E8E0096F413 /* DeenoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA0396DF1DDA4E8E0096F413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0396EF1DDA4E8E0096F413 /* LaunchScreen.storyboard in Resources */,
+				FA0396EC1DDA4E8E0096F413 /* Assets.xcassets in Resources */,
+				FA0396EA1DDA4E8E0096F413 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0396F31DDA4E8E0096F413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0396FE1DDA4E8E0096F413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA0396DD1DDA4E8E0096F413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0396E71DDA4E8E0096F413 /* ViewController.swift in Sources */,
+				FA0396E51DDA4E8E0096F413 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0396F11DDA4E8E0096F413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0396FA1DDA4E8E0096F413 /* DeenoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0396FC1DDA4E8E0096F413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0397051DDA4E8E0096F413 /* DeenoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA0396F71DDA4E8E0096F413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0396E01DDA4E8E0096F413 /* Deeno */;
+			targetProxy = FA0396F61DDA4E8E0096F413 /* PBXContainerItemProxy */;
+		};
+		FA0397021DDA4E8E0096F413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0396E01DDA4E8E0096F413 /* Deeno */;
+			targetProxy = FA0397011DDA4E8E0096F413 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA0396E81DDA4E8E0096F413 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA0396E91DDA4E8E0096F413 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA0396ED1DDA4E8E0096F413 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA0396EE1DDA4E8E0096F413 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA0397071DDA4E8E0096F413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA0397081DDA4E8E0096F413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA03970A1DDA4E8E0096F413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XWJ8766AJL;
+				INFOPLIST_FILE = Deeno/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.Deeno;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FA03970B1DDA4E8E0096F413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XWJ8766AJL;
+				INFOPLIST_FILE = Deeno/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.Deeno;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FA03970D1DDA4E8E0096F413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = XWJ8766AJL;
+				INFOPLIST_FILE = DeenoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.DeenoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deeno.app/Deeno";
+			};
+			name = Debug;
+		};
+		FA03970E1DDA4E8E0096F413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = XWJ8766AJL;
+				INFOPLIST_FILE = DeenoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.DeenoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deeno.app/Deeno";
+			};
+			name = Release;
+		};
+		FA0397101DDA4E8E0096F413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = XWJ8766AJL;
+				INFOPLIST_FILE = DeenoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.DeenoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Deeno;
+			};
+			name = Debug;
+		};
+		FA0397111DDA4E8E0096F413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = XWJ8766AJL;
+				INFOPLIST_FILE = DeenoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.DeenoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Deeno;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA0396DC1DDA4E8E0096F413 /* Build configuration list for PBXProject "Deeno" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0397071DDA4E8E0096F413 /* Debug */,
+				FA0397081DDA4E8E0096F413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0397091DDA4E8E0096F413 /* Build configuration list for PBXNativeTarget "Deeno" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA03970A1DDA4E8E0096F413 /* Debug */,
+				FA03970B1DDA4E8E0096F413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA03970C1DDA4E8E0096F413 /* Build configuration list for PBXNativeTarget "DeenoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA03970D1DDA4E8E0096F413 /* Debug */,
+				FA03970E1DDA4E8E0096F413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FA03970F1DDA4E8E0096F413 /* Build configuration list for PBXNativeTarget "DeenoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0397101DDA4E8E0096F413 /* Debug */,
+				FA0397111DDA4E8E0096F413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA0396D91DDA4E8E0096F413 /* Project object */;
+}
