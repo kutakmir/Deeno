@@ -1,0 +1,6 @@
+framework module Pods_Deeno {
+  umbrella header "Pods-Deeno-umbrella.h"
+
+  export *
+  module * { export * }
+}
