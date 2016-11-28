@@ -6,20 +6,23 @@
 //  Copyright © 2016 Michal Severín. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 class AccountViewController: AbstractViewController {
 
+    // MARK: - Initialization
     override func setupView() {
         super.setupView()
 
         view.backgroundColor = Palette[.white]
+        title = AccountSessionManager.manager.accountSession?.userInfo?.email
     }
 
     internal override func addElements() {
         super.addElements()
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(logoutButtonTapped))
     }
 
     internal override func initializeElements() {
@@ -33,8 +36,15 @@ class AccountViewController: AbstractViewController {
 
     // MARK: - Actions
     fileprivate func logout() {
-        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            delegate.window?.rootViewController = LoginViewController()
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            AccountSessionManager.manager.closeSession()
+            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                delegate.window?.rootViewController = LoginViewController()
+            }
+        } catch let signOutError as NSError {
+            print ("Error signing out: \(signOutError.localizedDescription)")
         }
     }
 }

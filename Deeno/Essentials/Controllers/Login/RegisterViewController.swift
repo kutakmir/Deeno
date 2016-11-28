@@ -31,6 +31,7 @@ class RegisterViewController: AbstractViewController {
 
         userNameTextField.placeholder = "email"
         passwordTextField.placeholder = "password"
+        passwordTextField.isSecureTextEntry = true
 
         registerButton.setTitle("Sign up", for: .normal)
         registerButton.backgroundColor = Palette[.lightBlue]
@@ -89,38 +90,17 @@ class RegisterViewController: AbstractViewController {
     // MARK: - Actions
     fileprivate func register() {
         guard let email = userNameTextField.text, let password = passwordTextField.text else { return }
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+        FIRAuth.auth()?.createUser(withEmail: email, password: password) { user, error in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
-            self.setDisplayName(user!)
-        }
-    }
-
-    fileprivate func setDisplayName(_ user: FIRUser) {
-        let changeRequest = user.profileChangeRequest()
-        if let email = user.email?.components(separatedBy: "@").first {
-            changeRequest.displayName = email
-            changeRequest.commitChanges(){ (error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
+            if let user = user {
+                AccountSessionManager.manager.accountSession = AccountSession(user: user)
+                if let window = (UIApplication.shared.delegate as? AppDelegate)?.window {
+                    window.rootViewController = TabBarController()
                 }
-                self.signedIn(FIRAuth.auth()?.currentUser)
             }
-        }
-    }
-
-    fileprivate func signedIn(_ user: FIRUser?) {
-        MeasurementHelper.sendLoginEvent()
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.photoURL = user?.photoURL
-        AppState.sharedInstance.signedIn = true
-        if let window = (UIApplication.shared.delegate as? AppDelegate)?.window {
-            let navigation = UINavigationController(rootViewController: RidesViewController())
-            navigation.navigationBar.applyStyle(style: .invisible(withStatusBarColor: Palette[.clear]))
-            window.rootViewController = navigation
         }
     }
 

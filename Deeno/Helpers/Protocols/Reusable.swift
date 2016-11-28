@@ -14,3 +14,10 @@ internal protocol Reusable {
     /// Identifier for view recycling.
     static var identifier: String {get}
 }
+
+extension Reusable {
+
+    static var identifier: String {
+        return String(describing: self)
+    }
+}

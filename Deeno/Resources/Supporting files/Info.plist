@@ -22,31 +22,31 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    <key>Fabric</key>
-    <dict>
-        <key>APIKey</key>
-        <string>860c9f6068860f6b16750f8028ab952c14d09dd2</string>
-        <key>Kits</key>
-        <array>
-            <dict>
-                <key>KitInfo</key>
-                <dict/>
-                <key>KitName</key>
-                <string>Crashlytics</string>
-            </dict>
-            <dict>
-                <key>KitInfo</key>
-                <dict>
-                    <key>consumerKey</key>
-                    <string>QOHW0ZJ5wJ2mx5llWwje7JOOK</string>
-                    <key>consumerSecret</key>
-                    <string>WqSARQjmzfQS4KKBdL9mBzZI1qZohUuifU5isGSrvqrUN0uoKc</string>
-                </dict>
-                <key>KitName</key>
-                <string>Digits</string>
-            </dict>
-        </array>
-    </dict>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>860c9f6068860f6b16750f8028ab952c14d09dd2</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>QOHW0ZJ5wJ2mx5llWwje7JOOK</string>
+					<key>consumerSecret</key>
+					<string>WqSARQjmzfQS4KKBdL9mBzZI1qZohUuifU5isGSrvqrUN0uoKc</string>
+				</dict>
+				<key>KitName</key>
+				<string>Digits</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -55,6 +55,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>

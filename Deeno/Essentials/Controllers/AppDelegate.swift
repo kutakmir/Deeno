@@ -57,16 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Initialization
     fileprivate func initializeRootVC() {
-        let navigation: UINavigationController
+        let navigation: UIViewController
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        // TODO
-//            navigation = UINavigationController(rootViewController: TabBarController())
-//        }
-//        else {
-            navigation = UINavigationController(rootViewController: LoginViewController())
-//        }
-        navigation.navigationBar.applyStyle(style: .invisible(withStatusBarColor: Palette[.clear]))
+
+        if let _ =  AccountSessionManager.manager.accountSession {
+            navigation = TabBarController()
+        }
+        else {
+            navigation = LoginViewController()
+        }
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }

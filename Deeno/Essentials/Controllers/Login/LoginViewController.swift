@@ -27,6 +27,7 @@ class LoginViewController: AbstractViewController {
 
         userNameTextField.placeholder = "email"
         passwordTextField.placeholder = "password"
+        passwordTextField.isSecureTextEntry = true
 
         loginButton.setTitle("Sign in", for: .normal)
         loginButton.backgroundColor = Palette[.lightBlue]
@@ -88,32 +89,22 @@ class LoginViewController: AbstractViewController {
 
     // MARK: - Actions
     fileprivate func login() {
-        Digits.sharedInstance().authenticate { session, error in
-            guard let email = self.userNameTextField.text, let password = self.passwordTextField.text else { return }
-            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                if let user = user {
-                    self.signedIn(user)
+        guard let email = self.userNameTextField.text, let password = self.passwordTextField.text else {
+            return
+        }
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { user, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            if let user = user {
+                AccountSessionManager.manager.accountSession = AccountSession(user: user)
+                if let window = (UIApplication.shared.delegate as? AppDelegate)?.window {
+                    window.rootViewController = TabBarController()
                 }
             }
         }
     }
-
-    fileprivate func signedIn(_ user: FIRUser?) {
-        MeasurementHelper.sendLoginEvent()
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.photoURL = user?.photoURL
-        AppState.sharedInstance.signedIn = true
-        if let window = (UIApplication.shared.delegate as? AppDelegate)?.window {
-            let navigation = UINavigationController(rootViewController: RidesViewController())
-            navigation.navigationBar.applyStyle(style: .invisible(withStatusBarColor: Palette[.clear]))
-            window.rootViewController = navigation
-        }
-    }
-
     fileprivate func register() {
         let vc = RegisterViewController()
         present(vc, animated: true, completion: nil)
