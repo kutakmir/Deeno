@@ -16,7 +16,7 @@ class AccountViewController: AbstractViewController {
         super.setupView()
 
         view.backgroundColor = Palette[.white]
-        title = AccountSessionManager.manager.accountSession?.userInfo?.email
+        navigationItem.title = AccountSessionManager.manager.accountSession?.userInfo?.email
     }
 
     internal override func addElements() {

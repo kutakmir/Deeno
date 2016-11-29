@@ -33,5 +33,6 @@ struct AccountSession {
             return nil
         }
         userInfo = UserInfo(user: user)
+        userInfo?.save()
     }
 }

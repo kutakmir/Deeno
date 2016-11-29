@@ -46,7 +46,7 @@ class RidesViewController: AbstractViewController {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
 
-        // TODO
+        // TODO - here will be Google API for select city etc.
         fromLabel.text = "Brno+SDFSDF"
         toLabel.text = "To"
 
