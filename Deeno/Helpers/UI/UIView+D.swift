@@ -29,3 +29,18 @@ extension UIView: Initializable {
     func loadData() {}
     func setupView() {}
 }
+
+class View: UIView {
+    
+    required override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addElementsAndApplyConstraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        addElementsAndApplyConstraints()
+    }
+}

@@ -49,8 +49,7 @@ class RidesViewController: AbstractViewController {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
 
-        // TODO - here will be Google API for select city etc.
-        fromLabel.text = "From"
+        fromLabel.text = "Brno+SDFSDF"
         fromLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(fromLabelTapped)))
         fromLabel.isUserInteractionEnabled = true
         fromLabel.textColor = Palette[.lightGray]
@@ -66,7 +65,8 @@ class RidesViewController: AbstractViewController {
         searchButton.tintColor = Palette[.white]
         searchButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
 
-        tableView.register(UITableViewCell.self)
+        tableView.contentInset = UIEdgeInsets(top: -36, left: 0, bottom: 0, right: 0)
+        tableView.separatorColor = Palette[.clear]
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -158,6 +158,12 @@ class RidesViewController: AbstractViewController {
 
         view.backgroundColor = Palette[.white]
     }
+    
+    internal override func customInit() {
+        super.customInit()
+        
+        tableView.register(RidesTableViewCell.self)
+    }
 
     // MARK: - User Actions
     func searchButtonTapped() {
@@ -193,6 +199,8 @@ class RidesViewController: AbstractViewController {
             .reference(withPath: Configuration.Entits.Rides)
             .child(from)
             .observe(.value, with: { snapshot in
+                self.fromLabel.text = "From"
+                self.toLabel.text = "To"
                 self.rides.removeAll()
                 for item in snapshot.children {
                     if let item = item as? FIRDataSnapshot {
@@ -209,10 +217,13 @@ class RidesViewController: AbstractViewController {
 extension RidesViewController: UITableViewDataSource {
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: RidesTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
 
         if let ride = rides[safe: indexPath.row] {
-            cell.textLabel?.text = ride.departure
+            cell.content.dayText = "Monday"
+            cell.content.timeText = ride.date
+            cell.content.dateText = ride.departure
+            cell.content.priceText = ride.price
         }
 
         return cell
@@ -230,6 +241,13 @@ extension RidesViewController: UITableViewDataSource {
 // MARK: - <UITableViewDelegate>
 extension RidesViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(Configuration.GUI.DefaultCellHeight)
+    }
 }
 
 // MARK: - <GMSAutocompleteViewControllerDelegate>
@@ -243,7 +261,6 @@ extension RidesViewController: GMSAutocompleteViewControllerDelegate {
         else {
             toLabel.text = place.name
         }
-        
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress ?? String.empty)
         print("Place attributions: ", place.attributions ?? String.empty)

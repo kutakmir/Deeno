@@ -10,6 +10,7 @@ extension Configuration {
 
     struct GUI {
 
-        static let ItemCornerRadius: Float = 5
+        static let ItemCornerRadius = 5
+        static let DefaultCellHeight = 200
     }
 }
