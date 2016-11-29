@@ -12,6 +12,8 @@
 		311023681DE9B0EE001E90F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023671DE9B0EE001E90F0 /* RegisterViewController.swift */; };
 		3162D2591DE7507A007D31D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */; };
 		3166AE191DEDE92E00BFA776 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE181DEDE92E00BFA776 /* TextField.swift */; };
+		3166AE1B1DEDEF7B00BFA776 /* SearchPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */; };
+		3166AE1D1DEDF83700BFA776 /* String+D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE1C1DEDF83700BFA776 /* String+D.swift */; };
 		31762FFF1DE4B69300A58A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31762FFE1DE4B69300A58A77 /* AppDelegate.swift */; };
 		317630171DE4B69300A58A77 /* DeenoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317630161DE4B69300A58A77 /* DeenoTests.swift */; };
 		317630361DE4B8D900A58A77 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317630351DE4B8D900A58A77 /* Media.xcassets */; };
@@ -80,6 +82,8 @@
 		311023671DE9B0EE001E90F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3166AE181DEDE92E00BFA776 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlacesViewController.swift; sourceTree = "<group>"; };
+		3166AE1C1DEDF83700BFA776 /* String+D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+D.swift"; sourceTree = "<group>"; };
 		31762FFB1DE4B69300A58A77 /* Deeno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deeno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31762FFE1DE4B69300A58A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3176300D1DE4B69300A58A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				31AD93F51DE4C7A50055BFBD /* Protocols */,
 				31DFAAF51DE6254D001DE29C /* Defaults.swift */,
 				318B97301DECC7EF00E755A8 /* Array.swift */,
+				3166AE1C1DEDF83700BFA776 /* String+D.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				31E4A6851DE58965008C16C5 /* AccountViewController.swift */,
 				31E4A6831DE5895F008C16C5 /* MapViewController.swift */,
 				31E4A6811DE58959008C16C5 /* RidesViewController.swift */,
+				3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -685,6 +691,7 @@
 				31AD94081DE4C7F50055BFBD /* UIImage+D.swift in Sources */,
 				31AD94161DE4CBB00055BFBD /* ImageView.swift in Sources */,
 				31AD94061DE4C7F50055BFBD /* UIColor+D.swift in Sources */,
+				3166AE1D1DEDF83700BFA776 /* String+D.swift in Sources */,
 				31AD940A1DE4C7F50055BFBD /* UINavigationBar+D.swift in Sources */,
 				31AD94071DE4C7F50055BFBD /* UIViewController+D.swift in Sources */,
 				311023681DE9B0EE001E90F0 /* RegisterViewController.swift in Sources */,
@@ -695,6 +702,7 @@
 				31DFAAF21DE624BC001DE29C /* KeyRepresentable.swift in Sources */,
 				31DFAAFD1DE62745001DE29C /* VoidBlock.swift in Sources */,
 				31AD94141DE4CB970055BFBD /* CollectionView.swift in Sources */,
+				3166AE1B1DEDEF7B00BFA776 /* SearchPlacesViewController.swift in Sources */,
 				318B97261DECC36E00E755A8 /* Entits.swift in Sources */,
 				318B97221DECC1DB00E755A8 /* Configuration.swift in Sources */,
 				31AD93F91DE4C7B10055BFBD /* Reusable.swift in Sources */,

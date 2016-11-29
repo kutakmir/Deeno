@@ -66,11 +66,18 @@ PODS:
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
   - GoogleNetworkingUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleParsingUtilities (1.1.2):
     - GoogleNetworkingUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
   - GoogleSignIn (4.0.1):
     - GoogleAppUtilities (~> 1.1)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
@@ -108,6 +115,8 @@ DEPENDENCIES:
   - FirebaseDatabase (= 3.0.2)
   - FirebaseStorage (= 1.0.2)
   - FirebaseUI (= 0.4.0)
+  - GoogleMaps
+  - GooglePlaces (~> 2.1)
   - JVFloatLabeledTextField (= 1.1.0)
   - OneSignal (= 1.13.3)
   - SnapKit
@@ -129,8 +138,10 @@ SPEC CHECKSUMS:
   FirebaseUI: 691e0f500c762a4c8b5b6ed93c011e871ecd8aad
   GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
   GoogleParsingUtilities: d265e86f84c1ab595f6ca5172b22a7a10ce99e1f
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   GoogleSignIn: a8694c0a8e6d1b0ec77c58014de5bfd4ba2fa766
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
@@ -142,6 +153,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   TwitterCore: 817eae3e291fa4125b47789e26a4f6f024115c1f
 
-PODFILE CHECKSUM: 0076b17b36ea197551b848d744a3cb0b2fe9ddb0
+PODFILE CHECKSUM: fa3ddf31b26d38daeaef4bab2ebf5480213cd5fb
 
 COCOAPODS: 1.1.1

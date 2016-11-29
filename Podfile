@@ -7,6 +7,8 @@ platform :ios, '9.0'
 def shared_pods
 	pod 'OneSignal', '1.13.3'
 	pod 'Fabric', '1.6.7'
+    pod 'GooglePlaces', '~> 2.1'
+    pod 'GoogleMaps'
 	pod 'Digits', '2.3.0'
 	pod 'TwitterCore', '2.3.0'
 	pod 'Crashlytics', '3.7.2'

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Michal Severín. All rights reserved.
 //
 
+import GooglePlaces
 import Firebase
 import SnapKit
 import UIKit
@@ -21,6 +22,8 @@ class RidesViewController: AbstractViewController {
 
     fileprivate let fromLabel = Label()
     fileprivate let toLabel = Label()
+    
+    internal var isFromLabelTapped = false
 
     fileprivate let searchButton = Button(type: .system)
 
@@ -47,11 +50,15 @@ class RidesViewController: AbstractViewController {
         imageView.contentMode = .scaleToFill
 
         // TODO - here will be Google API for select city etc.
-        fromLabel.text = "Brno+SDFSDF"
+        fromLabel.text = "From"
+        fromLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(fromLabelTapped)))
+        fromLabel.isUserInteractionEnabled = true
         fromLabel.textColor = Palette[.lightGray]
         
         toLabel.text = "To"
         toLabel.textColor = Palette[.lightGray]
+        toLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toLabelTapped)))
+        toLabel.isUserInteractionEnabled = true
 
         searchButton.setTitle("Next", for: .normal)
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
@@ -160,8 +167,24 @@ class RidesViewController: AbstractViewController {
     func filterButtonPressed() {
         filterBox.isHidden = !filterBox.isHidden
     }
+    
+    func fromLabelTapped() {
+        isFromLabelTapped = true
+        openAddresses()
+    }
+    
+    func toLabelTapped() {
+        isFromLabelTapped = false
+        openAddresses()
+    }
 
     // MARK: - Actions
+    fileprivate func openAddresses() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        self.present(autocompleteController, animated: true, completion: nil)
+    }
+    
     fileprivate func search() {
         guard let from = fromLabel.text else {
             return
@@ -207,4 +230,40 @@ extension RidesViewController: UITableViewDataSource {
 // MARK: - <UITableViewDelegate>
 extension RidesViewController: UITableViewDelegate {
 
+}
+
+// MARK: - <GMSAutocompleteViewControllerDelegate>
+extension RidesViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        if isFromLabelTapped {
+            fromLabel.text = place.name
+        }
+        else {
+            toLabel.text = place.name
+        }
+        
+        print("Place name: ", place.name)
+        print("Place address: ", place.formattedAddress ?? String.empty)
+        print("Place attributions: ", place.attributions ?? String.empty)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
 }

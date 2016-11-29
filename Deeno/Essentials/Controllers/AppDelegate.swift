@@ -12,6 +12,8 @@ import Firebase
 import Crashlytics
 import UIKit
 import CoreData
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeRootVC()
         initializeAnalytics()
         initializeFirebase()
+        initializeGoogle()
 
         return true
     }
@@ -69,6 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
+    }
+    
+    fileprivate func initializeGoogle() {
+        GMSServices.provideAPIKey("AIzaSyAFaitzsZsE2pSwhJfUWyiRnZrMVqGttuU")
+        GMSPlacesClient.provideAPIKey("AIzaSyAFaitzsZsE2pSwhJfUWyiRnZrMVqGttuU")
     }
 
     fileprivate func initializeAnalytics() {
