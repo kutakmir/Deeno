@@ -28,6 +28,7 @@ extension UIColor {
     /**
      Palette contains all user color in this app.
      - black
+     - brown
      - clear
      - gray
      - lightBlue
@@ -39,6 +40,7 @@ extension UIColor {
     internal enum Palette: PaletteProtocol {
 
         case black
+        case brown
         case clear
         case gray
         case lightBlue
@@ -53,6 +55,8 @@ extension UIColor {
                 return UIColor.clear
             case .black:
                 return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            case .brown:
+                return #colorLiteral(red: 0.8156862745, green: 0.6745098039, blue: 0.4549019608, alpha: 1)
             case .gray:
                 return #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             case .lightBlue:

@@ -23,36 +23,50 @@ class TabBarController: AbstractTabBarController {
     private enum Controllers: TabBarProtocol {
 
         case account
-        case map
+//        case map
         case rides
 
-        static let allCases: [Controllers] = [.rides, .map, .account]
+        static let allCases: [Controllers] = [.rides, .account]
 
         var controller: UIViewController {
             switch self {
             case .account:
                 return AccountViewController()
-            case .map:
-                return MapViewController()
+//            case .map:
+//                return MapViewController()
             case .rides:
                 return RidesViewController()
             }
         }
 
         var image: UIImage? {
-            return nil
+            switch self {
+            case .account:
+                return #imageLiteral(resourceName: "user")
+//            case .map:
+//                return #imageLiteral(resourceName: "map")
+            case .rides:
+                return #imageLiteral(resourceName: "car")
+            }
         }
 
         var selectedImage: UIImage? {
-            return nil
+            switch self {
+            case .account:
+                return #imageLiteral(resourceName: "user")
+//            case .map:
+//                return #imageLiteral(resourceName: "map")
+            case .rides:
+                return #imageLiteral(resourceName: "car")
+            }
         }
 
         var title: String? {
             switch self {
             case .account:
                 return "You"
-            case .map:
-                return "Map"
+//            case .map:
+//                return "Map"
             case .rides:
                 return "Rides"
             }
@@ -73,7 +87,7 @@ class TabBarController: AbstractTabBarController {
         var controllers: [UIViewController] = []
         for controller in Controllers.allCases {
             let navigationController = UINavigationController(rootViewController: controller.controller)
-            navigationController.navigationBar.applyStyle(style: .black)
+            navigationController.navigationBar.applyStyle(style: .solid(withStatusBarColor: Palette[.primary]))
             navigationController.tabBarItem.title = controller.title
             navigationController.tabBarItem.image = controller.image
             navigationController.tabBarItem.selectedImage = controller.selectedImage

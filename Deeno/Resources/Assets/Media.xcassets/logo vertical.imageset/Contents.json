@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Snímek obrazovky 2016-11-29 v 17.42.43.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "logo vertical.png",
       "scale" : "2x"
     },
     {

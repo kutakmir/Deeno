@@ -10,7 +10,13 @@ extension Configuration {
 
     struct GUI {
 
-        static let ItemCornerRadius = 5
+        /// Default cell height.
         static let DefaultCellHeight = 200
+        /// Item corner radius.
+        static let ItemCornerRadius = 5
+        /// User image border width.
+        static let UserImageBorderWidth = 2
+        /// User image corner radius.
+        static let UserImageCornerRadius = 15
     }
 }

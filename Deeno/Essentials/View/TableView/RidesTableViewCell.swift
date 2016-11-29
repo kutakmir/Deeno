@@ -24,7 +24,6 @@ class RidesTableViewCell: AbstractTableViewCell<RidesTableViewCellView> {
     }
 }
 
-
 class RidesTableViewCellView: View {
     
     // MARK: - Properties
@@ -61,12 +60,24 @@ class RidesTableViewCellView: View {
             priceLabel.text = newValue
         }
     }
+    var userImage: UIImage? {
+        get {
+            return userImageView.image
+        }
+        set {
+            userImageView.image = newValue
+        }
+    }
 
     // MARK: - Fileprivate Properties
     fileprivate let dayLabel = Label()
     fileprivate let timeLabel = Label()
     fileprivate let dateLabel = Label()
     fileprivate let priceLabel = Label()
+    
+    fileprivate let userImageView = ImageView()
+    
+    fileprivate let footerView = View()
     
     // MARK: - Initialize
     internal override func initializeElements() {
@@ -83,6 +94,15 @@ class RidesTableViewCellView: View {
         
         priceLabel.font = SystemFont[.description]
         priceLabel.textColor = Palette[.black]
+        
+        footerView.backgroundColor = Palette[.brown]
+        
+        userImageView.image = #imageLiteral(resourceName: "accPlaceholder")
+        userImageView.contentMode = .scaleAspectFit
+        userImageView.layer.cornerRadius = CGFloat(Configuration.GUI.UserImageCornerRadius)
+        userImageView.clipsToBounds = true
+        userImageView.layer.borderColor = Palette[.white].cgColor
+        userImageView.layer.borderWidth = CGFloat(Configuration.GUI.UserImageBorderWidth)
     }
     
     internal override func addElements() {
@@ -90,10 +110,12 @@ class RidesTableViewCellView: View {
         
         addSubviews(views:
             [
+                footerView,
                 dayLabel,
                 timeLabel,
                 dateLabel,
                 priceLabel,
+                userImageView,
             ]
         )
     }
@@ -101,28 +123,43 @@ class RidesTableViewCellView: View {
     internal override func setupConstraints() {
         super.setupConstraints()
         
+        userImageView.snp.makeConstraints { make in
+            make.leading.equalTo(self).inset(40)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+            make.bottom.equalTo(self)
+        }
+        
+        footerView.snp.makeConstraints { make in
+            make.leading.equalTo(self)
+            make.trailing.equalTo(self)
+            make.bottom.equalTo(self)
+            make.height.equalTo(30)
+            make.top.equalTo(dateLabel.snp.bottom).offset(10)
+        }
+        
         dayLabel.snp.makeConstraints { make in
             make.leading.equalTo(self).inset(5)
-            make.top.equalTo(self).inset(5)
-            make.height.equalTo(30)
+            make.top.equalTo(self).inset(3)
+            make.height.equalTo(20)
         }
         
         timeLabel.snp.makeConstraints { make in
             make.leading.equalTo(self).inset(5)
-            make.top.equalTo(dayLabel.snp.bottom).offset(5)
-            make.height.equalTo(30)
+            make.top.equalTo(dayLabel.snp.bottom)
+            make.height.equalTo(18)
         }
         
         dateLabel.snp.makeConstraints { make in
             make.leading.equalTo(self).inset(5)
-            make.top.equalTo(timeLabel.snp.bottom).offset(5)
-            make.height.equalTo(20)
+            make.top.equalTo(timeLabel.snp.bottom)
+            make.height.equalTo(18)
         }
 
         priceLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self).inset(5)
             make.top.equalTo(dateLabel.snp.bottom).offset(5)
-            make.bottom.equalTo(self).inset(5)
+            make.bottom.equalTo(self).inset(1)
         }
     }
 }

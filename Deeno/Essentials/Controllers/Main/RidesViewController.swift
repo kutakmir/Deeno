@@ -20,10 +20,60 @@ class RidesViewController: AbstractViewController {
     fileprivate let tableView = TableView(frame: .zero, style: .grouped)
     fileprivate let imageView = ImageView()
 
+    fileprivate let fromImageView = ImageView(image: #imageLiteral(resourceName: "mark"))
+    fileprivate let toImageView = ImageView(image: #imageLiteral(resourceName: "flag"))
+    
     fileprivate let fromLabel = Label()
     fileprivate let toLabel = Label()
+    fileprivate let dateLabel = Label()
+    
+    fileprivate let datePicker = UIDatePicker()
     
     internal var isFromLabelTapped = false
+    fileprivate var isAddRide = false {
+        didSet {
+            if isAddRide {
+                dateLabel.snp.remakeConstraints { make in
+                    make.bottom.equalTo(searchButton.snp.top).offset(-10)
+                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
+                    make.trailing.equalTo(filterBox).inset(10)
+                    make.height.equalTo(35)
+                }
+                toLabel.snp.remakeConstraints { make in
+                    make.bottom.equalTo(dateLabel.snp.top).offset(-5)
+                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
+                    make.trailing.equalTo(filterBox).inset(10)
+                    make.height.equalTo(35)
+                }
+                toImageView.snp.remakeConstraints { make in
+                    make.bottom.equalTo(searchButton.snp.top).offset(-56)
+                    make.leading.equalTo(filterBox).inset(5)
+                    make.width.equalTo(20)
+                    make.height.equalTo(20)
+                }
+            }
+            else {
+                dateLabel.snp.remakeConstraints { make in
+                    make.bottom.equalTo(searchButton.snp.top).offset(-10)
+                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
+                    make.trailing.equalTo(filterBox).inset(10)
+                    make.height.equalTo(0)
+                }
+                toLabel.snp.remakeConstraints { make in
+                    make.bottom.equalTo(dateLabel.snp.top).offset(-5)
+                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
+                    make.trailing.equalTo(filterBox).inset(10)
+                    make.height.equalTo(35)
+                }
+                toImageView.snp.remakeConstraints { make in
+                    make.bottom.equalTo(searchButton.snp.top).offset(-19)
+                    make.leading.equalTo(filterBox).inset(5)
+                    make.width.equalTo(20)
+                    make.height.equalTo(20)
+                }
+            }
+        }
+    }
 
     fileprivate let searchButton = Button(type: .system)
 
@@ -37,6 +87,12 @@ class RidesViewController: AbstractViewController {
     // MARK: - Initialization
     internal override func initializeElements() {
         super.initializeElements()
+        
+        datePicker.minimumDate = Date()
+        datePicker.addTarget(self, action: #selector(pickerValueChanged), for: .valueChanged)
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.isHidden = true
+        datePicker.backgroundColor = Palette[.white]
 
         filterBox.isHidden = true
         filterBox.backgroundColor = Palette[.white]
@@ -49,17 +105,21 @@ class RidesViewController: AbstractViewController {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
 
+        dateLabel.text = "When?"
+        dateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openDatePicker)))
+        dateLabel.isUserInteractionEnabled = true
+        dateLabel.textColor = Palette[.lightGray]
+        
         fromLabel.text = "Brno+SDFSDF"
         fromLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(fromLabelTapped)))
         fromLabel.isUserInteractionEnabled = true
         fromLabel.textColor = Palette[.lightGray]
-        
+
         toLabel.text = "To"
         toLabel.textColor = Palette[.lightGray]
         toLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toLabelTapped)))
         toLabel.isUserInteractionEnabled = true
 
-        searchButton.setTitle("Next", for: .normal)
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         searchButton.backgroundColor = Palette[.primary]
         searchButton.tintColor = Palette[.white]
@@ -69,12 +129,16 @@ class RidesViewController: AbstractViewController {
         tableView.separatorColor = Palette[.clear]
         tableView.delegate = self
         tableView.dataSource = self
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewEditingEnd)))
+        filterBox.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewEditingEnd)))
     }
 
     internal override func addElements() {
         super.addElements()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(filterButtonPressed))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
 
         view.addSubviews(views:
             [
@@ -88,13 +152,38 @@ class RidesViewController: AbstractViewController {
                 fromLabel,
                 toLabel,
                 searchButton,
+                fromImageView,
+                toImageView,
+                dateLabel,
+                datePicker,
             ]
         )
     }
 
     internal override func setupConstraints() {
         super.setupConstraints()
-
+        
+        datePicker.snp.makeConstraints { make in
+            make.leading.equalTo(filterBox)
+            make.trailing.equalTo(filterBox)
+            make.height.equalTo(100)
+            make.bottom.equalTo(filterBox)
+        }
+        
+        fromImageView.snp.makeConstraints { make in
+            make.bottom.equalTo(toLabel.snp.top).offset(-12)
+            make.leading.equalTo(filterBox).inset(5)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
+        
+        toImageView.snp.makeConstraints { make in
+            make.bottom.equalTo(searchButton.snp.top).offset(-19)
+            make.leading.equalTo(filterBox).inset(5)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
+        
         filterBox.snp.makeConstraints { make in
             make.width.equalTo(250)
             make.top.equalTo(view).inset(20)
@@ -118,13 +207,13 @@ class RidesViewController: AbstractViewController {
 
         toLabel.snp.makeConstraints { make in
             make.bottom.equalTo(searchButton.snp.top).offset(-10)
-            make.leading.equalTo(filterBox).inset(10)
+            make.leading.equalTo(toImageView.snp.trailing).offset(5)
             make.trailing.equalTo(filterBox).inset(10)
             make.height.equalTo(35)
         }
 
         fromLabel.snp.makeConstraints { make in
-            make.leading.equalTo(filterBox).inset(10)
+            make.leading.equalTo(fromImageView.snp.trailing).offset(5)
             make.trailing.equalTo(filterBox).inset(10)
             make.bottom.equalTo(toLabel.snp.top).offset(-5)
             make.height.equalTo(35)
@@ -166,11 +255,17 @@ class RidesViewController: AbstractViewController {
     }
 
     // MARK: - User Actions
+    func viewEditingEnd() {
+        datePicker.isHidden = true
+    }
+    
     func searchButtonTapped() {
         search()
     }
 
     func filterButtonPressed() {
+        searchButton.setTitle("Search", for: .normal)
+        isAddRide = false
         filterBox.isHidden = !filterBox.isHidden
     }
     
@@ -183,8 +278,30 @@ class RidesViewController: AbstractViewController {
         isFromLabelTapped = false
         openAddresses()
     }
+    
+    func addButtonPressed() {
+        searchButton.setTitle("Create a ride", for: .normal)
+        isAddRide = true
+        filterBox.isHidden = !filterBox.isHidden
+    }
+    
+    func pickerValueChanged() {
+        dateLabel.text = "\(datePicker.date)"
+    }
+    
+    func openDatePicker() {
+        datePicker.isHidden = !datePicker.isHidden
+    }
 
     // MARK: - Actions
+    fileprivate func pickerDateChanged() {
+        
+    }
+    
+    fileprivate func addRide() {
+        filterBox.isHidden = !filterBox.isHidden
+    }
+
     fileprivate func openAddresses() {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -218,6 +335,7 @@ extension RidesViewController: UITableViewDataSource {
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RidesTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.selectionStyle = .none
 
         if let ride = rides[safe: indexPath.row] {
             cell.content.dayText = "Monday"

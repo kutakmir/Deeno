@@ -69,6 +69,7 @@ extension UINavigationBar {
         case let .solid(color):
             sbBackgroundColor(color: color)
             barTintColor = color
+            tintColor = Palette[.white]
             barStyle = .black
         case let .invisible(color):
             sbBackgroundColor(color: color)

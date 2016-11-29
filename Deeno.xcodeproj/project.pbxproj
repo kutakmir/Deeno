@@ -10,6 +10,7 @@
 		2A5CBC612DFF1BB109B43060 /* Pods_Deeno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951400DB2BA40B6FE3891C10 /* Pods_Deeno.framework */; };
 		311023661DE9B088001E90F0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023651DE9B088001E90F0 /* WelcomeViewController.swift */; };
 		311023681DE9B0EE001E90F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023671DE9B0EE001E90F0 /* RegisterViewController.swift */; };
+		31486CE11DEF59590041FF11 /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31486CE01DEF59590041FF11 /* RideDetailViewController.swift */; };
 		3162D2591DE7507A007D31D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */; };
 		3166AE191DEDE92E00BFA776 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE181DEDE92E00BFA776 /* TextField.swift */; };
 		3166AE1B1DEDEF7B00BFA776 /* SearchPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */; };
@@ -82,6 +83,7 @@
 /* Begin PBXFileReference section */
 		311023651DE9B088001E90F0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		311023671DE9B0EE001E90F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		31486CE01DEF59590041FF11 /* RideDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
 		3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3166AE181DEDE92E00BFA776 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlacesViewController.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				31E4A6831DE5895F008C16C5 /* MapViewController.swift */,
 				31E4A6811DE58959008C16C5 /* RidesViewController.swift */,
 				3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */,
+				31486CE01DEF59590041FF11 /* RideDetailViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				3166AE1D1DEDF83700BFA776 /* String+D.swift in Sources */,
 				31AD940A1DE4C7F50055BFBD /* UINavigationBar+D.swift in Sources */,
 				31AD94071DE4C7F50055BFBD /* UIViewController+D.swift in Sources */,
+				31486CE11DEF59590041FF11 /* RideDetailViewController.swift in Sources */,
 				311023681DE9B0EE001E90F0 /* RegisterViewController.swift in Sources */,
 				318B972F1DECC71200E755A8 /* Rides.swift in Sources */,
 				31E4A6791DE5841F008C16C5 /* Button.swift in Sources */,

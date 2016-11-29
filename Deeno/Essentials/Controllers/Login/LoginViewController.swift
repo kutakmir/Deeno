@@ -43,8 +43,9 @@ class LoginViewController: AbstractViewController {
         passwordTextField.layer.borderWidth = 0.3
         passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
         passwordTextField.leftViewMode = .always
+        passwordTextField.addTarget(self, action: #selector(loginButtonTapped), for: .editingDidEndOnExit)
         
-        logoImageView.image = #imageLiteral(resourceName: "logo")
+        logoImageView.image = #imageLiteral(resourceName: "logo vertical")
         logoImageView.contentMode = .scaleAspectFit
         
         loginButton.setTitle("Sign in", for: .normal)
@@ -114,7 +115,7 @@ class LoginViewController: AbstractViewController {
     internal override func setupView() {
         super.setupView()
 
-        view.backgroundColor = Palette[.white]
+        view.backgroundColor = Palette[.primary]
     }
 
     // MARK: - Actions

@@ -16,6 +16,8 @@ class RegisterViewController: AbstractViewController {
 
     // MARK: - Properties
     // MARK: - Private Properties
+    fileprivate let logoImageView = ImageView()
+    
     fileprivate let userNameTextField = UITextField()
     fileprivate let passwordTextField = UITextField()
 
@@ -26,8 +28,12 @@ class RegisterViewController: AbstractViewController {
     internal override func initializeElements() {
         super.initializeElements()
 
-        closeButton.setTitle("Close", for: .normal)
+        closeButton.setTitle("X", for: .normal)
+        closeButton.tintColor = Palette[.white]
         closeButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
+
+        logoImageView.image = #imageLiteral(resourceName: "logo vertical")
+        logoImageView.contentMode = .scaleAspectFit
 
         userNameTextField.placeholder = "email"
         userNameTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
@@ -62,6 +68,7 @@ class RegisterViewController: AbstractViewController {
                 userNameTextField,
                 passwordTextField,
                 registerButton,
+                logoImageView,
             ]
         )
     }
@@ -69,8 +76,15 @@ class RegisterViewController: AbstractViewController {
     internal override func setupConstraints() {
         super.setupConstraints()
 
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(userNameTextField.snp.top).offset(-20)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        
         closeButton.snp.makeConstraints { make in
-            make.leading.equalTo(view).inset(0)
+            make.leading.equalTo(view).inset(-20)
             make.top.equalTo(view).inset(20)
             make.height.equalTo(30)
             make.width.equalTo(100)
@@ -100,7 +114,7 @@ class RegisterViewController: AbstractViewController {
     internal override func setupView() {
         super.setupView()
 
-        view.backgroundColor = Palette[.white]
+        view.backgroundColor = Palette[.primary]
     }
 
     // MARK: - Actions
