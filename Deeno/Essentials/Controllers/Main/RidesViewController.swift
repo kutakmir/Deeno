@@ -48,10 +48,16 @@ class RidesViewController: AbstractViewController {
 
         // TODO - here will be Google API for select city etc.
         fromLabel.text = "Brno+SDFSDF"
+        fromLabel.textColor = Palette[.lightGray]
+        
         toLabel.text = "To"
+        toLabel.textColor = Palette[.lightGray]
 
         searchButton.setTitle("Next", for: .normal)
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        searchButton.backgroundColor = Palette[.primary]
+        searchButton.tintColor = Palette[.white]
+        searchButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
 
         tableView.register(UITableViewCell.self)
         tableView.delegate = self
@@ -83,28 +89,28 @@ class RidesViewController: AbstractViewController {
         super.setupConstraints()
 
         filterBox.snp.makeConstraints { make in
-            make.leading.equalTo(view).inset(30)
-            make.trailing.equalTo(view).inset(30)
+            make.width.equalTo(250)
             make.top.equalTo(view).inset(20)
-            make.bottom.equalTo(view).inset(50)
+            make.centerX.equalTo(view)
+            make.height.equalTo(400)
         }
 
         imageView.snp.makeConstraints { make in
             make.leading.equalTo(filterBox)
             make.trailing.equalTo(filterBox)
             make.top.equalTo(filterBox)
-            make.bottom.equalTo(fromLabel.snp.top).offset(10)
+            make.bottom.equalTo(fromLabel.snp.top).offset(-10)
         }
 
         searchButton.snp.makeConstraints { make in
             make.bottom.equalTo(filterBox)
-            make.leading.equalTo(filterBox).inset(20)
-            make.trailing.equalTo(filterBox).inset(20)
+            make.leading.equalTo(filterBox)
+            make.trailing.equalTo(filterBox)
             make.height.equalTo(40)
         }
 
         toLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(searchButton.snp.top).offset(10)
+            make.bottom.equalTo(searchButton.snp.top).offset(-10)
             make.leading.equalTo(filterBox).inset(10)
             make.trailing.equalTo(filterBox).inset(10)
             make.height.equalTo(35)
@@ -113,7 +119,7 @@ class RidesViewController: AbstractViewController {
         fromLabel.snp.makeConstraints { make in
             make.leading.equalTo(filterBox).inset(10)
             make.trailing.equalTo(filterBox).inset(10)
-            make.bottom.equalTo(toLabel.snp.top).offset(10)
+            make.bottom.equalTo(toLabel.snp.top).offset(-5)
             make.height.equalTo(35)
         }
 

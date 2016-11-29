@@ -11,6 +11,7 @@
 		311023661DE9B088001E90F0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023651DE9B088001E90F0 /* WelcomeViewController.swift */; };
 		311023681DE9B0EE001E90F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023671DE9B0EE001E90F0 /* RegisterViewController.swift */; };
 		3162D2591DE7507A007D31D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */; };
+		3166AE191DEDE92E00BFA776 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE181DEDE92E00BFA776 /* TextField.swift */; };
 		31762FFF1DE4B69300A58A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31762FFE1DE4B69300A58A77 /* AppDelegate.swift */; };
 		317630171DE4B69300A58A77 /* DeenoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317630161DE4B69300A58A77 /* DeenoTests.swift */; };
 		317630361DE4B8D900A58A77 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317630351DE4B8D900A58A77 /* Media.xcassets */; };
@@ -78,6 +79,7 @@
 		311023651DE9B088001E90F0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		311023671DE9B0EE001E90F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3166AE181DEDE92E00BFA776 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		31762FFB1DE4B69300A58A77 /* Deeno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deeno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31762FFE1DE4B69300A58A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3176300D1DE4B69300A58A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				31AD94151DE4CBB00055BFBD /* ImageView.swift */,
 				31AD940F1DE4CB970055BFBD /* Label.swift */,
 				31AD94101DE4CB970055BFBD /* TableView.swift */,
+				3166AE181DEDE92E00BFA776 /* TextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				31DFAAF41DE624EA001DE29C /* Serializable.swift in Sources */,
 				31E4A6841DE5895F008C16C5 /* MapViewController.swift in Sources */,
 				31E4A68B1DE589E8008C16C5 /* TabBarController.swift in Sources */,
+				3166AE191DEDE92E00BFA776 /* TextField.swift in Sources */,
 				31AD94081DE4C7F50055BFBD /* UIImage+D.swift in Sources */,
 				31AD94161DE4CBB00055BFBD /* ImageView.swift in Sources */,
 				31AD94061DE4C7F50055BFBD /* UIColor+D.swift in Sources */,

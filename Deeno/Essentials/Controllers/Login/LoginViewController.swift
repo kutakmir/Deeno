@@ -18,26 +18,46 @@ class LoginViewController: AbstractViewController {
     fileprivate let loginButton = Button(type: .system)
     fileprivate let registerButton = Button(type: .system)
 
-    fileprivate let userNameTextField = UITextField()
-    fileprivate let passwordTextField = UITextField()
+    fileprivate let userNameTextField = TextField()
+    fileprivate let passwordTextField = TextField()
+    
+    fileprivate let logoImageView = ImageView()
 
     // MARK: - Initialize
     internal override func initializeElements() {
         super.initializeElements()
 
         userNameTextField.placeholder = "email"
+        userNameTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        userNameTextField.backgroundColor = Palette[.white]
+        userNameTextField.layer.borderColor = Palette[.gray].cgColor
+        userNameTextField.layer.borderWidth = 0.3
+        userNameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
+        userNameTextField.leftViewMode = .always
+        
         passwordTextField.placeholder = "password"
+        passwordTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
         passwordTextField.isSecureTextEntry = true
-
+        passwordTextField.backgroundColor = Palette[.white]
+        passwordTextField.layer.borderColor = Palette[.gray].cgColor
+        passwordTextField.layer.borderWidth = 0.3
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
+        passwordTextField.leftViewMode = .always
+        
+        logoImageView.image = #imageLiteral(resourceName: "logo")
+        logoImageView.contentMode = .scaleAspectFit
+        
         loginButton.setTitle("Sign in", for: .normal)
-        loginButton.backgroundColor = Palette[.lightBlue]
-        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        loginButton.backgroundColor = Palette[.primary]
         loginButton.tintColor = Palette[.white]
+        loginButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
 
         registerButton.setTitle("Sign up", for: .normal)
-        registerButton.backgroundColor = Palette[.lightBlue]
+        registerButton.backgroundColor = Palette[.primary]
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.tintColor = Palette[.white]
+        registerButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
     }
 
     internal override func addElements() {
@@ -45,6 +65,7 @@ class LoginViewController: AbstractViewController {
 
         view.addSubviews(views:
             [
+                logoImageView,
                 userNameTextField,
                 passwordTextField,
                 loginButton,
@@ -56,16 +77,25 @@ class LoginViewController: AbstractViewController {
     internal override func setupConstraints() {
         super.setupConstraints()
 
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(userNameTextField.snp.top).offset(-20)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        
         userNameTextField.snp.makeConstraints { make in
             make.centerY.equalTo(view).inset(-20)
             make.leading.equalTo(view).inset(50)
             make.trailing.equalTo(view).inset(50)
+            make.height.equalTo(35)
         }
 
         passwordTextField.snp.makeConstraints { make in
             make.centerY.equalTo(userNameTextField.snp.bottom).offset(20)
             make.leading.equalTo(view).inset(50)
             make.trailing.equalTo(view).inset(50)
+            make.height.equalTo(35)
         }
 
         loginButton.snp.makeConstraints { make in

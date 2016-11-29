@@ -30,13 +30,27 @@ class RegisterViewController: AbstractViewController {
         closeButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
 
         userNameTextField.placeholder = "email"
+        userNameTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        userNameTextField.backgroundColor = Palette[.white]
+        userNameTextField.layer.borderColor = Palette[.gray].cgColor
+        userNameTextField.layer.borderWidth = 0.3
+        userNameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
+        userNameTextField.leftViewMode = .always
+        
         passwordTextField.placeholder = "password"
+        passwordTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.backgroundColor = Palette[.white]
+        passwordTextField.layer.borderColor = Palette[.gray].cgColor
+        passwordTextField.layer.borderWidth = 0.3
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 35))
+        passwordTextField.leftViewMode = .always
 
         registerButton.setTitle("Sign up", for: .normal)
-        registerButton.backgroundColor = Palette[.lightBlue]
+        registerButton.backgroundColor = Palette[.primary]
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.tintColor = Palette[.white]
+        registerButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
     }
 
     internal override func addElements() {
@@ -66,12 +80,14 @@ class RegisterViewController: AbstractViewController {
             make.centerY.equalTo(view).inset(-30)
             make.leading.equalTo(view).inset(50)
             make.trailing.equalTo(view).inset(50)
+            make.height.equalTo(35)
         }
 
         passwordTextField.snp.makeConstraints { make in
             make.centerY.equalTo(userNameTextField.snp.bottom).offset(20)
             make.leading.equalTo(view).inset(50)
             make.trailing.equalTo(view).inset(50)
+            make.height.equalTo(35)
         }
 
         registerButton.snp.makeConstraints { make in
