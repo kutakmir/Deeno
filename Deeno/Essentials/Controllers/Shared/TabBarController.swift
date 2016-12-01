@@ -23,17 +23,17 @@ class TabBarController: AbstractTabBarController {
     private enum Controllers: TabBarProtocol {
 
         case account
-//        case map
+        case messages
         case rides
 
-        static let allCases: [Controllers] = [.rides, .account]
+        static let allCases: [Controllers] = [.rides, .messages, .account]
 
         var controller: UIViewController {
             switch self {
             case .account:
                 return AccountViewController()
-//            case .map:
-//                return MapViewController()
+            case .messages:
+                return MessageListViewController()
             case .rides:
                 return RidesViewController()
             }
@@ -43,8 +43,8 @@ class TabBarController: AbstractTabBarController {
             switch self {
             case .account:
                 return #imageLiteral(resourceName: "user")
-//            case .map:
-//                return #imageLiteral(resourceName: "map")
+            case .messages:
+                return #imageLiteral(resourceName: "msg")
             case .rides:
                 return #imageLiteral(resourceName: "car")
             }
@@ -54,8 +54,8 @@ class TabBarController: AbstractTabBarController {
             switch self {
             case .account:
                 return #imageLiteral(resourceName: "user")
-//            case .map:
-//                return #imageLiteral(resourceName: "map")
+            case .messages:
+                return #imageLiteral(resourceName: "msg")
             case .rides:
                 return #imageLiteral(resourceName: "car")
             }
@@ -65,8 +65,8 @@ class TabBarController: AbstractTabBarController {
             switch self {
             case .account:
                 return "You"
-//            case .map:
-//                return "Map"
+            case .messages:
+                return "Messages"
             case .rides:
                 return "Rides"
             }

@@ -28,7 +28,7 @@ class LoginViewController: AbstractViewController {
         super.initializeElements()
 
         userNameTextField.placeholder = "email"
-        userNameTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        userNameTextField.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         userNameTextField.backgroundColor = Palette[.white]
         userNameTextField.layer.borderColor = Palette[.gray].cgColor
         userNameTextField.layer.borderWidth = 0.3
@@ -36,7 +36,7 @@ class LoginViewController: AbstractViewController {
         userNameTextField.leftViewMode = .always
         
         passwordTextField.placeholder = "password"
-        passwordTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        passwordTextField.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         passwordTextField.isSecureTextEntry = true
         passwordTextField.backgroundColor = Palette[.white]
         passwordTextField.layer.borderColor = Palette[.gray].cgColor
@@ -51,14 +51,14 @@ class LoginViewController: AbstractViewController {
         loginButton.setTitle("Sign in", for: .normal)
         loginButton.backgroundColor = Palette[.primary]
         loginButton.tintColor = Palette[.white]
-        loginButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        loginButton.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
 
         registerButton.setTitle("Sign up", for: .normal)
         registerButton.backgroundColor = Palette[.primary]
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.tintColor = Palette[.white]
-        registerButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        registerButton.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
     }
 
     internal override func addElements() {

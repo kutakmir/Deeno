@@ -102,6 +102,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
   - JVFloatLabeledTextField (1.1.0)
+  - Kingfisher (3.2.1)
   - OneSignal (1.13.3)
   - SnapKit (3.0.2)
   - TwitterCore (2.3.0):
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces (~> 2.1)
   - JVFloatLabeledTextField (= 1.1.0)
+  - Kingfisher
   - OneSignal (= 1.13.3)
   - SnapKit
   - TwitterCore (= 2.3.0)
@@ -149,10 +151,11 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JVFloatLabeledTextField: ea4a3d8387ddd43724c472bb2b8ab39b79af05d4
+  Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
   OneSignal: 434facae3389cb0d4d3fc57b9a6cf66db685205e
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   TwitterCore: 817eae3e291fa4125b47789e26a4f6f024115c1f
 
-PODFILE CHECKSUM: fa3ddf31b26d38daeaef4bab2ebf5480213cd5fb
+PODFILE CHECKSUM: 39d874506eaf940666599c3463e5ae34b785fa69
 
 COCOAPODS: 1.1.1

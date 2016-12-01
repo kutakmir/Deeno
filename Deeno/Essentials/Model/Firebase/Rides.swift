@@ -13,19 +13,25 @@ struct Rides {
     var key: String?
     var date: String?
     var departure: String?
+    var destination: String?
     var freeSeats: String?
     var price: String?
     var userId: String?
+    var username: String?
+    var userPhone: String?
     var ref: FIRDatabaseReference?
 
     init(snapshot: FIRDataSnapshot) {
         if let snapshotValue = snapshot.value as? [String: String] {
             key = snapshot.key
-            date = snapshotValue["data"]
+            date = snapshotValue["date"]
+            destination = snapshotValue["destination"]
             departure = snapshotValue["departure"]
             freeSeats = snapshotValue["freeSeats"]
             price = snapshotValue["price"]
             userId = snapshotValue["userId"]
+            username = snapshotValue["username"]
+            userPhone = snapshotValue["userPhone"]
             ref = snapshot.ref
         }
     }

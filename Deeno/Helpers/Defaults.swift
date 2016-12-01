@@ -198,6 +198,8 @@ extension UserDefaults {
 
         /// User name info.
         case userProfileInfo
+        /// User phone
+        case userPhone
     }
 }
 

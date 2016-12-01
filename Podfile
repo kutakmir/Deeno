@@ -17,6 +17,7 @@ def shared_pods
 	pod 'FirebaseStorage', '1.0.2'
 	pod 'FirebaseUI', '0.4.0'
     pod 'SnapKit'
+    pod 'Kingfisher'
 	pod 'JVFloatLabeledTextField', '1.1.0'
 end
 

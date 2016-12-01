@@ -25,15 +25,20 @@ class AbstractTableViewCell<ContentView: View>: UITableViewCell {
     // MARK: - Properties
     // MARK: Public/Internal Properties
     lazy var content: ContentView = ContentView()
-    internal var cellInsets: UIEdgeInsets {
-        return UIEdgeInsets.zero
+    var cellInsets: UIEdgeInsets = .zero {
+        didSet {
+            content.snp.remakeConstraints { make in
+                make.edges.equalTo(self).inset(cellInsets)
+            }
+            self.layoutIfNeeded()
+        }
     }
     
     // MARK: - Initialization
     override func initializeElements() {
         super.initializeElements()
         
-        content.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        content.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         backgroundColor = UIColor.Palette.clear.color
     }
     

@@ -30,50 +30,6 @@ class RidesViewController: AbstractViewController {
     fileprivate let datePicker = UIDatePicker()
     
     internal var isFromLabelTapped = false
-    fileprivate var isAddRide = false {
-        didSet {
-            if isAddRide {
-                dateLabel.snp.remakeConstraints { make in
-                    make.bottom.equalTo(searchButton.snp.top).offset(-10)
-                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
-                    make.trailing.equalTo(filterBox).inset(10)
-                    make.height.equalTo(35)
-                }
-                toLabel.snp.remakeConstraints { make in
-                    make.bottom.equalTo(dateLabel.snp.top).offset(-5)
-                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
-                    make.trailing.equalTo(filterBox).inset(10)
-                    make.height.equalTo(35)
-                }
-                toImageView.snp.remakeConstraints { make in
-                    make.bottom.equalTo(searchButton.snp.top).offset(-56)
-                    make.leading.equalTo(filterBox).inset(5)
-                    make.width.equalTo(20)
-                    make.height.equalTo(20)
-                }
-            }
-            else {
-                dateLabel.snp.remakeConstraints { make in
-                    make.bottom.equalTo(searchButton.snp.top).offset(-10)
-                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
-                    make.trailing.equalTo(filterBox).inset(10)
-                    make.height.equalTo(0)
-                }
-                toLabel.snp.remakeConstraints { make in
-                    make.bottom.equalTo(dateLabel.snp.top).offset(-5)
-                    make.leading.equalTo(toImageView.snp.trailing).offset(5)
-                    make.trailing.equalTo(filterBox).inset(10)
-                    make.height.equalTo(35)
-                }
-                toImageView.snp.remakeConstraints { make in
-                    make.bottom.equalTo(searchButton.snp.top).offset(-19)
-                    make.leading.equalTo(filterBox).inset(5)
-                    make.width.equalTo(20)
-                    make.height.equalTo(20)
-                }
-            }
-        }
-    }
 
     fileprivate let searchButton = Button(type: .system)
 
@@ -96,12 +52,12 @@ class RidesViewController: AbstractViewController {
 
         filterBox.isHidden = true
         filterBox.backgroundColor = Palette[.white]
-        filterBox.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        filterBox.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         filterBox.layer.borderColor = Palette[.black].cgColor
         filterBox.layer.borderWidth = 0.5
 
         imageView.image = #imageLiteral(resourceName: "ridesBg")
-        imageView.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        imageView.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
 
@@ -110,27 +66,27 @@ class RidesViewController: AbstractViewController {
         dateLabel.isUserInteractionEnabled = true
         dateLabel.textColor = Palette[.lightGray]
         
-        fromLabel.text = "Brno+SDFSDF"
+        fromLabel.text = "Prague"
         fromLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(fromLabelTapped)))
         fromLabel.isUserInteractionEnabled = true
         fromLabel.textColor = Palette[.lightGray]
 
-        toLabel.text = "To"
+        toLabel.text = "Kolin"
         toLabel.textColor = Palette[.lightGray]
         toLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toLabelTapped)))
         toLabel.isUserInteractionEnabled = true
 
+        searchButton.setTitle("Search", for: .normal)
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         searchButton.backgroundColor = Palette[.primary]
         searchButton.tintColor = Palette[.white]
-        searchButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        searchButton.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
 
-        tableView.contentInset = UIEdgeInsets(top: -36, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
         tableView.separatorColor = Palette[.clear]
         tableView.delegate = self
         tableView.dataSource = self
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewEditingEnd)))
+
         filterBox.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewEditingEnd)))
     }
 
@@ -224,24 +180,6 @@ class RidesViewController: AbstractViewController {
         }
     }
 
-    internal override func loadData() {
-        super.loadData()
-
-//        let ref = FIRDatabase.database().reference(withPath: "rides")
-//        let post = ["data": "10-9-2016", "departure": "3013", "destination": "Brno+SDFSDF", "freeSeats": "3", "price": "59", "userId": "DFSA323"]
-////        
-//        ref.child("rides").childByAutoId().setValue(post) { error, reference in
-//            guard error == nil else {
-//                print("\(error)")
-//                return
-//            }
-//            print(reference)
-//        }
-//
-
-//        ref.childByAutoId().setValue(["data": "10-9-2016", "departure": "3013", "destination": "Brno+SDFSDF", "freeSeats": "3", "price": "59", "userId": "DFSA323"])
-    }
-
     override func setupView() {
         super.setupView()
 
@@ -250,6 +188,8 @@ class RidesViewController: AbstractViewController {
     
     internal override func customInit() {
         super.customInit()
+        
+        title = "Rides"
         
         tableView.register(RidesTableViewCell.self)
     }
@@ -264,8 +204,6 @@ class RidesViewController: AbstractViewController {
     }
 
     func filterButtonPressed() {
-        searchButton.setTitle("Search", for: .normal)
-        isAddRide = false
         filterBox.isHidden = !filterBox.isHidden
     }
     
@@ -280,9 +218,9 @@ class RidesViewController: AbstractViewController {
     }
     
     func addButtonPressed() {
-        searchButton.setTitle("Create a ride", for: .normal)
-        isAddRide = true
-        filterBox.isHidden = !filterBox.isHidden
+        let navigation = UINavigationController(rootViewController: AddRideViewController())
+        navigation.navigationBar.applyStyle(style: .solid(withStatusBarColor: Palette[.primary]))
+        present(navigation, animated: true, completion: nil)
     }
     
     func pickerValueChanged() {
@@ -294,10 +232,6 @@ class RidesViewController: AbstractViewController {
     }
 
     // MARK: - Actions
-    fileprivate func pickerDateChanged() {
-        
-    }
-    
     fileprivate func addRide() {
         filterBox.isHidden = !filterBox.isHidden
     }
@@ -316,15 +250,17 @@ class RidesViewController: AbstractViewController {
             .reference(withPath: Configuration.Entits.Rides)
             .child(from)
             .observe(.value, with: { snapshot in
-                self.fromLabel.text = "From"
-                self.toLabel.text = "To"
                 self.rides.removeAll()
                 for item in snapshot.children {
-                    if let item = item as? FIRDataSnapshot {
+                    if let item = item as? FIRDataSnapshot, let to = self.toLabel.text {
                         let ride = Rides(snapshot: item)
-                        self.rides.append(ride)
+                        if ride.destination == to {
+                            self.rides.append(ride)
+                        }
                     }
                 }
+                self.fromLabel.text = "Prague"
+                self.toLabel.text = "Kolin"
             }
         )
     }
@@ -336,12 +272,25 @@ extension RidesViewController: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RidesTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.selectionStyle = .none
-
-        if let ride = rides[safe: indexPath.row] {
-            cell.content.dayText = "Monday"
+        cell.inset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
+        
+        if let ride = rides[safe: indexPath.row], let price = ride.price {
+            if let date = TimeFormatsEnum.dateTime.dateFromString(ride.date) {
+                if date.isToday() {
+                    cell.content.dayText = "Today"
+                }
+                else if date.isTomorrow() {
+                    cell.content.dayText = "Tomorrow"
+                }
+                else {
+                    cell.content.dayText = date.day
+                }
+            }
+            if let from = ride.departure, let destination = ride.destination {
+                cell.content.dateText = "\(from) -> \(destination)"
+            }
             cell.content.timeText = ride.date
-            cell.content.dateText = ride.departure
-            cell.content.priceText = ride.price
+            cell.content.priceText = "\(price) $"
         }
 
         return cell
@@ -359,12 +308,20 @@ extension RidesViewController: UITableViewDataSource {
 // MARK: - <UITableViewDelegate>
 extension RidesViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let ride = rides[safe: indexPath.row] {
+            let detailVC = RideDetailViewController()
+            detailVC.ride = ride
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(Configuration.GUI.DefaultCellHeight)
+        return Configuration.GUI.DefaultCellHeight
     }
 }
 

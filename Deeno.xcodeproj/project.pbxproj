@@ -10,6 +10,7 @@
 		2A5CBC612DFF1BB109B43060 /* Pods_Deeno.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951400DB2BA40B6FE3891C10 /* Pods_Deeno.framework */; };
 		311023661DE9B088001E90F0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023651DE9B088001E90F0 /* WelcomeViewController.swift */; };
 		311023681DE9B0EE001E90F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311023671DE9B0EE001E90F0 /* RegisterViewController.swift */; };
+		3114B8101DF46F8D00AC346A /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114B80F1DF46F8D00AC346A /* MessageListViewController.swift */; };
 		31486CE11DEF59590041FF11 /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31486CE01DEF59590041FF11 /* RideDetailViewController.swift */; };
 		3162D2591DE7507A007D31D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */; };
 		3166AE191DEDE92E00BFA776 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166AE181DEDE92E00BFA776 /* TextField.swift */; };
@@ -44,6 +45,10 @@
 		31AD94131DE4CB970055BFBD /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD94101DE4CB970055BFBD /* TableView.swift */; };
 		31AD94141DE4CB970055BFBD /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD94111DE4CB970055BFBD /* CollectionView.swift */; };
 		31AD94161DE4CBB00055BFBD /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD94151DE4CBB00055BFBD /* ImageView.swift */; };
+		31BF44D41DF091A3005A5269 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BF44D31DF091A3005A5269 /* AddRideViewController.swift */; };
+		31C42D251DF3764800F396A4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C42D241DF3764800F396A4 /* Message.swift */; };
+		31C42D271DF3778000F396A4 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C42D261DF3778000F396A4 /* MessagesViewController.swift */; };
+		31C42D291DF379DC00F396A4 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C42D281DF379DC00F396A4 /* MessagesTableViewCell.swift */; };
 		31DFAAF21DE624BC001DE29C /* KeyRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DFAAF11DE624BC001DE29C /* KeyRepresentable.swift */; };
 		31DFAAF41DE624EA001DE29C /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DFAAF31DE624EA001DE29C /* Serializable.swift */; };
 		31DFAAF61DE6254D001DE29C /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DFAAF51DE6254D001DE29C /* Defaults.swift */; };
@@ -55,6 +60,7 @@
 		31E4A6861DE58965008C16C5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4A6851DE58965008C16C5 /* AccountViewController.swift */; };
 		31E4A6881DE5898C008C16C5 /* AbstractTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4A6871DE5898C008C16C5 /* AbstractTabBarController.swift */; };
 		31E4A68B1DE589E8008C16C5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E4A68A1DE589E8008C16C5 /* TabBarController.swift */; };
+		31F1CCD91DF2CE6B002671EA /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1CCD81DF2CE6B002671EA /* TimeHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,7 @@
 /* Begin PBXFileReference section */
 		311023651DE9B088001E90F0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		311023671DE9B0EE001E90F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3114B80F1DF46F8D00AC346A /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		31486CE01DEF59590041FF11 /* RideDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
 		3162D2581DE7507A007D31D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3166AE181DEDE92E00BFA776 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -121,6 +128,10 @@
 		31AD94101DE4CB970055BFBD /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		31AD94111DE4CB970055BFBD /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		31AD94151DE4CBB00055BFBD /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		31BF44D31DF091A3005A5269 /* AddRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
+		31C42D241DF3764800F396A4 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		31C42D261DF3778000F396A4 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		31C42D281DF379DC00F396A4 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		31DFAAE21DE62061001DE29C /* Deeno.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Deeno.entitlements; sourceTree = "<group>"; };
 		31DFAAF11DE624BC001DE29C /* KeyRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyRepresentable.swift; sourceTree = "<group>"; };
 		31DFAAF31DE624EA001DE29C /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
@@ -133,6 +144,7 @@
 		31E4A6851DE58965008C16C5 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		31E4A6871DE5898C008C16C5 /* AbstractTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractTabBarController.swift; sourceTree = "<group>"; };
 		31E4A68A1DE589E8008C16C5 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		31F1CCD81DF2CE6B002671EA /* TimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
 		6E719A97B884D208592C22C6 /* Pods-Deeno.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deeno.release.xcconfig"; path = "Pods/Target Support Files/Pods-Deeno/Pods-Deeno.release.xcconfig"; sourceTree = "<group>"; };
 		951400DB2BA40B6FE3891C10 /* Pods_Deeno.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deeno.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B96C239898D76DCADAD096D /* Pods-Deeno.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deeno.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Deeno/Pods-Deeno.debug.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +308,7 @@
 			children = (
 				3176302C1DE4B81600A58A77 /* Abstract */,
 				3166AE201DEDFBD900BFA776 /* RidesTableViewCell.swift */,
+				31C42D281DF379DC00F396A4 /* MessagesTableViewCell.swift */,
 			);
 			name = TableView;
 			path = ../TableView;
@@ -325,6 +338,7 @@
 				31DFAAF51DE6254D001DE29C /* Defaults.swift */,
 				318B97301DECC7EF00E755A8 /* Array.swift */,
 				3166AE1C1DEDF83700BFA776 /* String+D.swift */,
+				31F1CCD81DF2CE6B002671EA /* TimeHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -386,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				318B972E1DECC71200E755A8 /* Rides.swift */,
+				31C42D241DF3764800F396A4 /* Message.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -487,6 +502,9 @@
 				31E4A6811DE58959008C16C5 /* RidesViewController.swift */,
 				3166AE1A1DEDEF7B00BFA776 /* SearchPlacesViewController.swift */,
 				31486CE01DEF59590041FF11 /* RideDetailViewController.swift */,
+				31BF44D31DF091A3005A5269 /* AddRideViewController.swift */,
+				31C42D261DF3778000F396A4 /* MessagesViewController.swift */,
+				3114B80F1DF46F8D00AC346A /* MessageListViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -686,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				318B971E1DECB59B00E755A8 /* AccountSession.swift in Sources */,
+				31C42D291DF379DC00F396A4 /* MessagesTableViewCell.swift in Sources */,
 				31DFAAF61DE6254D001DE29C /* Defaults.swift in Sources */,
 				31E4A6821DE58959008C16C5 /* RidesViewController.swift in Sources */,
 				31E4A6861DE58965008C16C5 /* AccountViewController.swift in Sources */,
@@ -696,11 +715,14 @@
 				31DFAAF41DE624EA001DE29C /* Serializable.swift in Sources */,
 				31E4A6841DE5895F008C16C5 /* MapViewController.swift in Sources */,
 				31E4A68B1DE589E8008C16C5 /* TabBarController.swift in Sources */,
+				31F1CCD91DF2CE6B002671EA /* TimeHelper.swift in Sources */,
 				3166AE211DEDFBD900BFA776 /* RidesTableViewCell.swift in Sources */,
 				3166AE191DEDE92E00BFA776 /* TextField.swift in Sources */,
 				31AD94081DE4C7F50055BFBD /* UIImage+D.swift in Sources */,
 				31AD94161DE4CBB00055BFBD /* ImageView.swift in Sources */,
 				31AD94061DE4C7F50055BFBD /* UIColor+D.swift in Sources */,
+				31C42D271DF3778000F396A4 /* MessagesViewController.swift in Sources */,
+				31C42D251DF3764800F396A4 /* Message.swift in Sources */,
 				3166AE1D1DEDF83700BFA776 /* String+D.swift in Sources */,
 				31AD940A1DE4C7F50055BFBD /* UINavigationBar+D.swift in Sources */,
 				31AD94071DE4C7F50055BFBD /* UIViewController+D.swift in Sources */,
@@ -709,6 +731,7 @@
 				318B972F1DECC71200E755A8 /* Rides.swift in Sources */,
 				31E4A6791DE5841F008C16C5 /* Button.swift in Sources */,
 				318B97311DECC7EF00E755A8 /* Array.swift in Sources */,
+				3114B8101DF46F8D00AC346A /* MessageListViewController.swift in Sources */,
 				31E4A6881DE5898C008C16C5 /* AbstractTabBarController.swift in Sources */,
 				31DFAAF21DE624BC001DE29C /* KeyRepresentable.swift in Sources */,
 				31DFAAFD1DE62745001DE29C /* VoidBlock.swift in Sources */,
@@ -723,6 +746,7 @@
 				31762FFF1DE4B69300A58A77 /* AppDelegate.swift in Sources */,
 				318B971C1DECB58700E755A8 /* AccountSesstionManager.swift in Sources */,
 				31AD93F81DE4C7B10055BFBD /* Initialize.swift in Sources */,
+				31BF44D41DF091A3005A5269 /* AddRideViewController.swift in Sources */,
 				31AD940C1DE4CB1E0055BFBD /* LoginViewController.swift in Sources */,
 				31AD94121DE4CB970055BFBD /* Label.swift in Sources */,
 				318B97201DECB5E500E755A8 /* UserInfo.swift in Sources */,

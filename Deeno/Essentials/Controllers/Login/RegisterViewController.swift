@@ -36,7 +36,7 @@ class RegisterViewController: AbstractViewController {
         logoImageView.contentMode = .scaleAspectFit
 
         userNameTextField.placeholder = "email"
-        userNameTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        userNameTextField.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         userNameTextField.backgroundColor = Palette[.white]
         userNameTextField.layer.borderColor = Palette[.gray].cgColor
         userNameTextField.layer.borderWidth = 0.3
@@ -44,7 +44,7 @@ class RegisterViewController: AbstractViewController {
         userNameTextField.leftViewMode = .always
         
         passwordTextField.placeholder = "password"
-        passwordTextField.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        passwordTextField.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         passwordTextField.isSecureTextEntry = true
         passwordTextField.backgroundColor = Palette[.white]
         passwordTextField.layer.borderColor = Palette[.gray].cgColor
@@ -56,7 +56,7 @@ class RegisterViewController: AbstractViewController {
         registerButton.backgroundColor = Palette[.primary]
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         registerButton.tintColor = Palette[.white]
-        registerButton.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        registerButton.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
     }
 
     internal override func addElements() {
@@ -124,12 +124,6 @@ class RegisterViewController: AbstractViewController {
             if let error = error {
                 print(error.localizedDescription)
                 return
-            }
-            if let user = user {
-                AccountSessionManager.manager.accountSession = AccountSession(user: user)
-                if let window = (UIApplication.shared.delegate as? AppDelegate)?.window {
-                    window.rootViewController = TabBarController()
-                }
             }
         }
     }

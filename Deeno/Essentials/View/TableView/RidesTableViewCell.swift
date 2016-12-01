@@ -10,15 +10,20 @@ import UIKit
 
 class RidesTableViewCell: AbstractTableViewCell<RidesTableViewCellView> {
     
-    override var cellInsets: UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
+    var inset: UIEdgeInsets? {
+        didSet {
+            guard let inset = inset else {
+                return
+            }
+            cellInsets = inset
+        }
     }
     
     // MARK: - Initialization
     override func initializeElements() {
         super.initializeElements()
         
-        content.layer.cornerRadius = CGFloat(Configuration.GUI.ItemCornerRadius)
+        content.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
         content.clipsToBounds = true
         content.backgroundColor = Palette[.white]
     }
@@ -93,16 +98,17 @@ class RidesTableViewCellView: View {
         dateLabel.textColor = Palette[.lightBlue]
         
         priceLabel.font = SystemFont[.description]
-        priceLabel.textColor = Palette[.black]
+        priceLabel.textColor = Palette[.white]
+        priceLabel.font = SystemFont[.title]
         
         footerView.backgroundColor = Palette[.brown]
         
         userImageView.image = #imageLiteral(resourceName: "accPlaceholder")
         userImageView.contentMode = .scaleAspectFit
-        userImageView.layer.cornerRadius = CGFloat(Configuration.GUI.UserImageCornerRadius)
+        userImageView.layer.cornerRadius = Configuration.GUI.UserImageCornerRadius
         userImageView.clipsToBounds = true
         userImageView.layer.borderColor = Palette[.white].cgColor
-        userImageView.layer.borderWidth = CGFloat(Configuration.GUI.UserImageBorderWidth)
+        userImageView.layer.borderWidth = Configuration.GUI.UserImageBorderWidth
     }
     
     internal override func addElements() {
@@ -158,7 +164,7 @@ class RidesTableViewCellView: View {
 
         priceLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self).inset(5)
-            make.top.equalTo(dateLabel.snp.bottom).offset(5)
+            make.top.equalTo(dateLabel.snp.bottom).offset(9)
             make.bottom.equalTo(self).inset(1)
         }
     }

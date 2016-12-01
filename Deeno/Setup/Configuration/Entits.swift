@@ -11,5 +11,8 @@ extension Configuration {
     struct Entits {
 
         static let Rides = "rides"
+        static let Message = "chatMessages"
+        static let Conversation = "conversations"
+        static let Users = "users"
     }
 }

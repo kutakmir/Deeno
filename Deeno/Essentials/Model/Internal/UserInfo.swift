@@ -19,16 +19,20 @@ struct UserInfo {
 
     init(user: FIRUser) {
         self.uid = user.uid
-        self.displayName = user.displayName
-        self.email = user.email
+        if let email = user.email, let displayname = email.components(separatedBy: "@").first {
+            self.email = email
+            self.displayName = displayname
+        }
         self.photoURL = user.photoURL
     }
 
     init(snapshot: FIRDataSnapshot) {
         self.uid = snapshot.key
         if let value = snapshot.value as? [String: Any] {
-            self.displayName = value["displayName"] as? String
-            self.email = value["email"] as? String
+            if let email = value["email"] as? String, let displayname = email.components(separatedBy: "@").first {
+                self.email = email
+                self.displayName = displayname
+            }
             self.photoURL = URL(string: "\(value["photoURL"])")
         }
     }

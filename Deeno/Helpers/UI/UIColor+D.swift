@@ -60,7 +60,7 @@ extension UIColor {
             case .gray:
                 return #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             case .lightBlue:
-                return #colorLiteral(red: 0.4899612069, green: 0.5155428052, blue: 1, alpha: 1)
+                return #colorLiteral(red: 0.6980392157, green: 0.7764705882, blue: 0.8431372549, alpha: 1)
             case .lightGray:
                 return #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             case .primary:

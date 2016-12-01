@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2E99025A7CF173BCC87F28CCD18C7C7"
+               BlueprintIdentifier = "895223302DF91840F673F5813D2D2E23"
                BuildableName = "Pods_Deeno.framework"
                BlueprintName = "Pods-Deeno"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2E99025A7CF173BCC87F28CCD18C7C7"
+            BlueprintIdentifier = "895223302DF91840F673F5813D2D2E23"
             BuildableName = "Pods_Deeno.framework"
             BlueprintName = "Pods-Deeno"
             ReferencedContainer = "container:Pods.xcodeproj">
