@@ -42,9 +42,18 @@ class MessagesViewController: AbstractViewController {
         }
     }
     
-    var conversation: Conversation?
+    var conversation: Conversation? {
+        didSet {
+            guard let myId = AccountSessionManager.manager.accountSession?.userInfo?.uid, let from = conversation?.from else {
+                return
+            }
+            if let fromUser = conversation?.fromUser, let toUser = conversation?.toUser {
+                navigationItem.title = myId == from ? toUser : fromUser
+            }
+        }
+    }
     var conversationId: String?
-    var toUserName: String?
+
     
     // MARK: Private Properties
     fileprivate var messages: [Message] = [] {

@@ -22,12 +22,20 @@ class RideDetailViewController: AbstractViewController {
             ridePrice.text = "\(ride.price ?? String.empty) $"
             ridePickup.text = "Pickup in: \(ride.departure ?? String.empty)"
             usernameLabel.text = ride.username
+            if let name = ride.username {
+                navigationItem.title = name
+            }
         }
     }
     
     // MARK: Private Properties
     fileprivate let profileImageView = ImageView()
     fileprivate let coverView = View()
+    
+    
+    fileprivate let firstLineView = View()
+    fileprivate let secondLineView = View()
+    fileprivate let thirdLineView = View()
     
     fileprivate let messageImageView = ImageView(image: #imageLiteral(resourceName: "messages"))
     fileprivate let phoneImageView = ImageView(image: #imageLiteral(resourceName: "phone"))
@@ -40,19 +48,7 @@ class RideDetailViewController: AbstractViewController {
     fileprivate let pitchLabel = Label()
     
     fileprivate let alertController = UIAlertController(title: "Message", message: nil, preferredStyle: .alert)
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        navigationController?.navigationBar.applyStyle(style: .solid(withStatusBarColor: Palette[.lightBlue]))
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-//        navigationController?.navigationBar.applyStyle(style: .solid(withStatusBarColor: Palette[.primary]))
-//    }
-//    
+
     // MARK: - Initialization
     internal override func initializeElements() {
         super.initializeElements()
@@ -62,6 +58,11 @@ class RideDetailViewController: AbstractViewController {
         messageImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(createMessage)))
         
         phoneImageView.contentMode = .scaleAspectFit
+        
+        
+        firstLineView.backgroundColor = Palette[.gray]
+        secondLineView.backgroundColor = Palette[.gray]
+        thirdLineView.backgroundColor = Palette[.gray]
         
         usernameLabel.font = SystemFont[.title]
         usernameLabel.textAlignment = .center
@@ -116,6 +117,9 @@ class RideDetailViewController: AbstractViewController {
                 rideDay,
                 ridePrice,
                 ridePickup,
+                firstLineView,
+                secondLineView,
+                thirdLineView,
             ]
         )
     }
@@ -186,6 +190,27 @@ class RideDetailViewController: AbstractViewController {
             make.centerX.equalTo(view)
             make.width.equalTo(80)
             make.height.equalTo(80)
+        }
+        
+        firstLineView.snp.makeConstraints { make in
+            make.leading.equalTo(view).inset(10)
+            make.trailing.equalTo(view).inset(10)
+            make.height.equalTo(0.5)
+            make.top.equalTo(coverView.snp.bottom).offset(85)
+        }
+        
+        secondLineView.snp.makeConstraints { make in
+            make.leading.equalTo(view).inset(10)
+            make.trailing.equalTo(view).inset(10)
+            make.height.equalTo(0.5)
+            make.top.equalTo(firstLineView.snp.bottom).offset(25)
+        }
+        
+        thirdLineView.snp.makeConstraints { make in
+            make.leading.equalTo(view).inset(10)
+            make.trailing.equalTo(view).inset(10)
+            make.top.equalTo(secondLineView.snp.bottom).offset(30)
+            make.height.equalTo(0.5)
         }
     }
     

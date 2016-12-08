@@ -6,6 +6,7 @@
 //  Copyright © 2016 Michal Severín. All rights reserved.
 //
 
+import OneSignal
 import DigitsKit
 import Fabric
 import Firebase
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        OneSignal.initWithLaunchOptions(launchOptions, appId: "e87cb0a5-9513-4be5-a303-ad7ed1595957")
+        
         initializeRootVC()
         initializeAnalytics()
         initializeFirebase()

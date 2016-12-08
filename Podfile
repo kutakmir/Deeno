@@ -5,7 +5,7 @@ use_frameworks!
 platform :ios, '9.0'
 
 def shared_pods
-	pod 'OneSignal', '1.13.3'
+	pod 'OneSignal'
 	pod 'Fabric', '1.6.7'
     pod 'GooglePlaces', '~> 2.1'
     pod 'GoogleMaps'

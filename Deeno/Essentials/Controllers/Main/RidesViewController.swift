@@ -66,12 +66,12 @@ class RidesViewController: AbstractViewController {
         dateLabel.isUserInteractionEnabled = true
         dateLabel.textColor = Palette[.lightGray]
         
-        fromLabel.text = "Prague"
+        fromLabel.text = "From"
         fromLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(fromLabelTapped)))
         fromLabel.isUserInteractionEnabled = true
         fromLabel.textColor = Palette[.lightGray]
 
-        toLabel.text = "Kolin"
+        toLabel.text = "To"
         toLabel.textColor = Palette[.lightGray]
         toLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toLabelTapped)))
         toLabel.isUserInteractionEnabled = true
@@ -190,7 +190,7 @@ class RidesViewController: AbstractViewController {
         super.customInit()
         
         title = "Rides"
-        
+
         tableView.register(RidesTableViewCell.self)
     }
 
@@ -249,6 +249,7 @@ class RidesViewController: AbstractViewController {
         FIRDatabase.database()
             .reference(withPath: Configuration.Entits.Rides)
             .child(from)
+            .queryLimited(toLast: 10)
             .observe(.value, with: { snapshot in
                 self.rides.removeAll()
                 for item in snapshot.children {
@@ -259,8 +260,8 @@ class RidesViewController: AbstractViewController {
                         }
                     }
                 }
-                self.fromLabel.text = "Prague"
-                self.toLabel.text = "Kolin"
+                self.fromLabel.text = "From"
+                self.toLabel.text = "To"
             }
         )
     }
