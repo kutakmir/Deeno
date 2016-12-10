@@ -96,6 +96,9 @@ extension MessageListViewController: UITableViewDataSource {
         if let userId = AccountSessionManager.manager.accountSession?.userInfo?.uid {
             if let conversation = conversations[safe: indexPath.row], let to = conversation.to, let fromName = conversation.fromUser, let toName = conversation.toUser {
                 cell.textLabel?.text = to == userId ? fromName : toName
+                cell.imageView?.image = #imageLiteral(resourceName: "accPlaceholder")
+                cell.imageView?.contentMode = .scaleAspectFit
+                cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
             }
         }
 

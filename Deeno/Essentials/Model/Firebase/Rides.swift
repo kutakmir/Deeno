@@ -11,7 +11,7 @@ import Firebase
 struct Rides {
 
     var key: String?
-    var date: String?
+    var date: Date?
     var departure: String?
     var destination: String?
     var freeSeats: String?
@@ -24,7 +24,7 @@ struct Rides {
     init(snapshot: FIRDataSnapshot) {
         if let snapshotValue = snapshot.value as? [String: String] {
             key = snapshot.key
-            date = snapshotValue["date"]
+            date = TimeFormatsEnum.dateTime.dateFromString(snapshotValue["date"])
             destination = snapshotValue["destination"]
             departure = snapshotValue["departure"]
             freeSeats = snapshotValue["freeSeats"]

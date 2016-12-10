@@ -17,7 +17,7 @@ struct Message {
     var toUser: String?
     var toId: String?
     var text: String?
-    var createdAt: String?
+    var createdAt: Date?
     var ref: FIRDatabaseReference?
 
     init?(snapshot: FIRDataSnapshot) {
@@ -29,7 +29,7 @@ struct Message {
             fromUser = snapshotValue["fromUser"]
             toId = snapshotValue["toId"]
             text = snapshotValue["text"]
-            createdAt = snapshotValue["createdAt"]
+            createdAt = TimeFormatsEnum.dateTime.dateFromString(snapshotValue["createdAt"])
             ref = snapshot.ref
         }
     }

@@ -58,13 +58,15 @@ class MessagesViewController: AbstractViewController {
     // MARK: Private Properties
     fileprivate var messages: [Message] = [] {
         didSet {
+            messageTextView.text = String.empty
             tableView.reloadData()
         }
     }
     
     fileprivate let tableView = TableView(frame: .zero, style: .grouped)
-    
-    fileprivate let messageTextField = TextField()
+    fileprivate let toolbar = UIToolbar()
+    fileprivate let messageTextView = UITextView()
+    fileprivate let sendButton = UIButton(type: .system)
     
     fileprivate var toUserID: String?
     
@@ -72,40 +74,80 @@ class MessagesViewController: AbstractViewController {
     internal override func initializeElements() {
         super.initializeElements()
         
-        messageTextField.placeholder = "message"
-        messageTextField.addTarget(self, action: #selector(sendMessage), for: .editingDidEndOnExit)
+        toolbar.tintColor = Palette[.white]
+        toolbar.isTranslucent = false
+        toolbar.autoresizingMask = .flexibleWidth
+        toolbar.backgroundColor = Palette[.primary]
+        
+        sendButton.tintColor = Palette[.primary]
+        sendButton.setTitle("SEND", for: .normal)
+        sendButton.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
+    
+        messageTextView.isScrollEnabled = false
+        messageTextView.layer.cornerRadius = Configuration.GUI.ItemCornerRadius
+        messageTextView.layer.borderWidth = Configuration.GUI.UserImageBorderWidth
+        messageTextView.layer.borderColor = Palette[.lightGray].cgColor
+        messageTextView.autoresizingMask = .flexibleWidth
         
         tableView.contentInset = UIEdgeInsets(top: -33, left: 0, bottom: 0, right: 0)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorColor = Palette[.clear]
+        tableView.addKeyboardPanning { frame, opening, closing in
+            var toolBarFrame = self.toolbar.frame;
+            toolBarFrame.origin.y = frame.origin.y - toolBarFrame.size.height
+            self.toolbar.frame = toolBarFrame
+        }
+        tableView.keyboardTriggerOffset = toolbar.frame.size.height
     }
     
     internal override func addElements() {
         super.addElements()
-        
+
         view.addSubviews(views:
             [
                 tableView,
-                messageTextField,
             ]
         )
+
+        toolbar.addSubviews(views:
+            [
+                messageTextView,
+                sendButton,
+            ]
+        )
+
+        tableView.addSubview(toolbar)
     }
     
     internal override func setupConstraints() {
         super.setupConstraints()
         
-        messageTextField.snp.makeConstraints { make in
-            make.height.equalTo(40)
+        sendButton.snp.makeConstraints { make in
+            make.bottom.equalTo(toolbar).inset(5)
+            make.trailing.equalTo(toolbar).inset(10)
+            make.height.equalTo(30)
+            make.width.equalTo(40)
+        }
+        
+        toolbar.snp.makeConstraints { make in
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
             make.bottom.equalTo(view)
+        }
+        
+        messageTextView.snp.makeConstraints { make in
+            make.leading.equalTo(toolbar).inset(5)
+            make.trailing.equalTo(sendButton.snp.leading).offset(-10)
+            make.top.equalTo(toolbar).inset(5)
+            make.bottom.equalTo(toolbar).inset(5)
         }
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view)
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
-            make.bottom.equalTo(messageTextField.snp.top)
+            make.bottom.equalTo(view)
         }
     }
     
@@ -119,9 +161,6 @@ class MessagesViewController: AbstractViewController {
         super.customInit()
 
         tableView.register(MessagesTableViewCell.self)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     internal override func loadData() {
@@ -156,7 +195,7 @@ class MessagesViewController: AbstractViewController {
     }
 
     fileprivate func send() {
-        guard let userId = AccountSessionManager.manager.accountSession?.userInfo?.uid, let userName = AccountSessionManager.manager.accountSession?.userInfo?.displayName, let message = messageTextField.text, let conversation = conversation, let key = conversationId, let conversationFrom = conversation.from, let conversationTo = conversation.to, let fromName = conversation.fromUser, let toName = conversation.toUser else {
+        guard let userId = AccountSessionManager.manager.accountSession?.userInfo?.uid, let userName = AccountSessionManager.manager.accountSession?.userInfo?.displayName, let message = messageTextView.text, let conversation = conversation, let key = conversationId, let conversationFrom = conversation.from, let conversationTo = conversation.to, let fromName = conversation.fromUser, let toName = conversation.toUser else {
             return
         }
         let timestamp = String(Date().timeIntervalSince1970).replacingOccurrences(of: ".", with: String.empty)
@@ -172,37 +211,10 @@ class MessagesViewController: AbstractViewController {
                 "toId": conversationFrom == userId ? conversationTo : conversationFrom,
                 "toUser": fromName == userName ? toName : fromName,
                 "text": message,
-                "createdAt": "\(Date())",
+                "createdAt": TimeFormatsEnum.dateTime.stringFromDate(Date()),
             ]
         )
-    }
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            messageTextField.snp.remakeConstraints { make in
-                make.height.equalTo(40)
-                make.leading.equalTo(view)
-                make.trailing.equalTo(view)
-                make.bottom.equalTo(view).inset(keyboardSize.height)
-            }
-        }
-        UIView.animate(withDuration: Configuration.DefaultAnimationTimeInterval, animations: { _ in
-            self.messageTextField.layoutIfNeeded()
-            }, completion: { _ in  }
-        )
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        self.messageTextField.snp.remakeConstraints { make in
-            make.height.equalTo(40)
-            make.leading.equalTo(self.view)
-            make.trailing.equalTo(self.view)
-            make.bottom.equalTo(self.view)
-        }
-        UIView.animate(withDuration: Configuration.DefaultAnimationTimeInterval, animations: { _ in
-            self.messageTextField.layoutIfNeeded()
-            }, completion: { _ in  }
-        )
+        view.endEditing(true)
     }
 }
 
@@ -212,17 +224,22 @@ extension MessagesViewController: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MessagesTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.selectionStyle = .none
+        cell.content.textColor = Palette[.black]
         
         if let msg = messages[safe: indexPath.row], let from = msg.fromId {
             if from == AccountSessionManager.manager.accountSession?.userInfo?.uid ?? "" {
-                cell.inset = UIEdgeInsets(top: 0, left: 50, bottom: 5, right: 5)
-                cell.content.messageLabel.textAlignment = .right
+                cell.inset = UIEdgeInsets(top: 0, left: (UIScreen.main.bounds.width / 2)-20, bottom: 10, right: 5)
+                cell.content.alignment = .right
+                cell.content.backgroundColor = Palette[.primary]
+                cell.content.textColor = Palette[.white]
             }
             else {
-                cell.inset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 50)
-                cell.content.messageLabel.textAlignment = .left
+                cell.inset = UIEdgeInsets(top: 0, left: 5, bottom: 10, right: (UIScreen.main.bounds.width / 2)-20)
+                cell.content.alignment = .left
+                cell.content.backgroundColor = Palette[.white]
             }
-            cell.content.message = msg.text ?? String.empty
+            cell.content.createdTime = TimeFormatsEnum.dateTime.stringFromDate(msg.createdAt)
+            cell.content.message = msg.text
         }
         
         return cell
@@ -245,6 +262,6 @@ extension MessagesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 80
     }
 }

@@ -17,8 +17,8 @@ class RideDetailViewController: AbstractViewController {
             guard let ride = ride else {
                 return
             }
-            rideDay.text = TimeFormatsEnum.dateTime.dateFromString(ride.date)?.day
-            rideDate.text = ride.date
+            rideDay.text = ride.date?.day
+            rideDate.text = TimeFormatsEnum.dateTime.stringFromDate(ride.date)
             ridePrice.text = "\(ride.price ?? String.empty) $"
             ridePickup.text = "Pickup in: \(ride.departure ?? String.empty)"
             usernameLabel.text = ride.username
@@ -267,7 +267,7 @@ class RideDetailViewController: AbstractViewController {
                 "toId": toUser,
                 "toUser": rideUsername,
                 "text": message,
-                "createdAt": "\(Date())",
+                "createdAt": TimeFormatsEnum.dateTime.stringFromDate(Date()),
             ]
         )
     }

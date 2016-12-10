@@ -20,6 +20,7 @@ extension UIFont {
     internal enum Fonts {
         case title
         case description
+        case small
     }
 
     subscript(font: Fonts) -> UIFont {
@@ -28,6 +29,8 @@ extension UIFont {
             return UIFont.systemFont(ofSize: 15)
         case .description:
             return UIFont.systemFont(ofSize: 11)
+        case .small:
+            return UIFont.systemFont(ofSize: 8)
         }
     }
 }

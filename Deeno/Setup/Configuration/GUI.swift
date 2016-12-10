@@ -18,7 +18,7 @@ extension Configuration {
         /// Item corner radius.
         static let ItemCornerRadius: CGFloat = 5
         /// User image border width.
-        static let UserImageBorderWidth: CGFloat = 2
+        static let UserImageBorderWidth: CGFloat = 0.5
         /// User image corner radius.
         static let UserImageCornerRadius: CGFloat = 15
         /// User image corner radius - account view.

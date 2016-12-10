@@ -276,7 +276,7 @@ extension RidesViewController: UITableViewDataSource {
         cell.inset = UIEdgeInsets(top: 0, left: 5, bottom: 5, right: 5)
         
         if let ride = rides[safe: indexPath.row], let price = ride.price {
-            if let date = TimeFormatsEnum.dateTime.dateFromString(ride.date) {
+            if let date = ride.date {
                 if date.isToday() {
                     cell.content.dayText = "Today"
                 }
@@ -290,7 +290,7 @@ extension RidesViewController: UITableViewDataSource {
             if let from = ride.departure, let destination = ride.destination {
                 cell.content.dateText = "\(from) -> \(destination)"
             }
-            cell.content.timeText = ride.date
+            cell.content.timeText = TimeFormatsEnum.dateTime.stringFromDate(ride.date)
             cell.content.priceText = "\(price) $"
         }
 

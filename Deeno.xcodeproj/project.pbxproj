@@ -31,6 +31,7 @@
 		318B972C1DECC50900E755A8 /* UITabeViewCell+D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B972B1DECC50900E755A8 /* UITabeViewCell+D.swift */; };
 		318B972F1DECC71200E755A8 /* Rides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B972E1DECC71200E755A8 /* Rides.swift */; };
 		318B97311DECC7EF00E755A8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318B97301DECC7EF00E755A8 /* Array.swift */; };
+		3192BB3D1DFB39E700758DDB /* DAKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3192BB3C1DFB39E700758DDB /* DAKeyboardControl.m */; };
 		31AD93F41DE4C78E0055BFBD /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD93F31DE4C78E0055BFBD /* AbstractViewController.swift */; };
 		31AD93F81DE4C7B10055BFBD /* Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD93F61DE4C7B10055BFBD /* Initialize.swift */; };
 		31AD93F91DE4C7B10055BFBD /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AD93F71DE4C7B10055BFBD /* Reusable.swift */; };
@@ -114,6 +115,9 @@
 		318B972B1DECC50900E755A8 /* UITabeViewCell+D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabeViewCell+D.swift"; sourceTree = "<group>"; };
 		318B972E1DECC71200E755A8 /* Rides.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rides.swift; sourceTree = "<group>"; };
 		318B97301DECC7EF00E755A8 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		3192BB3A1DFB39E600758DDB /* Deeno-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Deeno-Bridging-Header.h"; sourceTree = "<group>"; };
+		3192BB3B1DFB39E700758DDB /* DAKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAKeyboardControl.h; sourceTree = "<group>"; };
+		3192BB3C1DFB39E700758DDB /* DAKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAKeyboardControl.m; sourceTree = "<group>"; };
 		31AD93F31DE4C78E0055BFBD /* AbstractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
 		31AD93F61DE4C7B10055BFBD /* Initialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initialize.swift; sourceTree = "<group>"; };
 		31AD93F71DE4C7B10055BFBD /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 		3176302F1DE4B84900A58A77 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3192BB391DFB39D300758DDB /* External */,
 				31DFAAFE1DE62855001DE29C /* Entitlements */,
 				317630321DE4B89300A58A77 /* Assets */,
 				317630331DE4B8A200A58A77 /* Localization */,
@@ -403,6 +408,16 @@
 				31C42D241DF3764800F396A4 /* Message.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		3192BB391DFB39D300758DDB /* External */ = {
+			isa = PBXGroup;
+			children = (
+				3192BB3B1DFB39E700758DDB /* DAKeyboardControl.h */,
+				3192BB3C1DFB39E700758DDB /* DAKeyboardControl.m */,
+				3192BB3A1DFB39E600758DDB /* Deeno-Bridging-Header.h */,
+			);
+			path = External;
 			sourceTree = "<group>";
 		};
 		31AD93F21DE4C7780055BFBD /* Abstract */ = {
@@ -583,6 +598,7 @@
 					31762FFA1DE4B69300A58A77 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = G7TAUN84TA;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -716,6 +732,7 @@
 				31E4A6861DE58965008C16C5 /* AccountViewController.swift in Sources */,
 				311023661DE9B088001E90F0 /* WelcomeViewController.swift in Sources */,
 				318B972C1DECC50900E755A8 /* UITabeViewCell+D.swift in Sources */,
+				3192BB3D1DFB39E700758DDB /* DAKeyboardControl.m in Sources */,
 				31AD94131DE4CB970055BFBD /* TableView.swift in Sources */,
 				318B97291DECC44200E755A8 /* UITableView+D.swift in Sources */,
 				31DFAAF41DE624EA001DE29C /* Serializable.swift in Sources */,
@@ -876,6 +893,7 @@
 			baseConfigurationReference = 9B96C239898D76DCADAD096D /* Pods-Deeno.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Deeno/Resources/Entitlements/Deeno.entitlements";
 				DEVELOPMENT_TEAM = G7TAUN84TA;
 				ENABLE_BITCODE = NO;
@@ -884,6 +902,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.Deeno;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deeno/Resources/External/Deeno-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -893,6 +913,7 @@
 			baseConfigurationReference = 6E719A97B884D208592C22C6 /* Pods-Deeno.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Deeno/Resources/Entitlements/Deeno.entitlements";
 				DEVELOPMENT_TEAM = G7TAUN84TA;
 				ENABLE_BITCODE = NO;
@@ -901,6 +922,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavkutak.Deeno;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deeno/Resources/External/Deeno-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
